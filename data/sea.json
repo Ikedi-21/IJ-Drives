@@ -1,0 +1,400 @@
+[
+  {
+    "id": "S001",
+    "provider_id": "P010",
+    "origin": "Lagos",
+    "destination": "Badagry",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 6.4162,
+      "lng": 2.8874
+    },
+    "departure": "07:00",
+    "arrival": "09:30",
+    "duration_hrs": 2.5,
+    "fare_ngn": 3500,
+    "class": "Economy",
+    "seats_available": 60,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S002",
+    "provider_id": "P010",
+    "origin": "Badagry",
+    "destination": "Lagos",
+    "origin_coords": {
+      "lat": 6.4162,
+      "lng": 2.8874
+    },
+    "destination_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "departure": "10:00",
+    "arrival": "12:30",
+    "duration_hrs": 2.5,
+    "fare_ngn": 3500,
+    "class": "Economy",
+    "seats_available": 60,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S003",
+    "provider_id": "P008",
+    "origin": "Lagos",
+    "destination": "Apapa",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 6.45,
+      "lng": 3.36
+    },
+    "departure": "06:30",
+    "arrival": "07:15",
+    "duration_hrs": 0.75,
+    "fare_ngn": 800,
+    "class": "Economy",
+    "seats_available": 80,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S004",
+    "provider_id": "P008",
+    "origin": "Apapa",
+    "destination": "Lagos",
+    "origin_coords": {
+      "lat": 6.45,
+      "lng": 3.36
+    },
+    "destination_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "departure": "08:00",
+    "arrival": "08:45",
+    "duration_hrs": 0.75,
+    "fare_ngn": 800,
+    "class": "Economy",
+    "seats_available": 80,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S005",
+    "provider_id": "P008",
+    "origin": "Lagos",
+    "destination": "Badagry",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 6.4162,
+      "lng": 2.8874
+    },
+    "departure": "09:00",
+    "arrival": "11:00",
+    "duration_hrs": 2,
+    "fare_ngn": 4500,
+    "class": "Premium",
+    "seats_available": 40,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S006",
+    "provider_id": "P011",
+    "origin": "Warri",
+    "destination": "Sapele",
+    "origin_coords": {
+      "lat": 5.5174,
+      "lng": 5.7536
+    },
+    "destination_coords": {
+      "lat": 5.8934,
+      "lng": 5.6778
+    },
+    "departure": "07:00",
+    "arrival": "08:00",
+    "duration_hrs": 1,
+    "fare_ngn": 1500,
+    "class": "Economy",
+    "seats_available": 50,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S007",
+    "provider_id": "P011",
+    "origin": "Sapele",
+    "destination": "Warri",
+    "origin_coords": {
+      "lat": 5.8934,
+      "lng": 5.6778
+    },
+    "destination_coords": {
+      "lat": 5.5174,
+      "lng": 5.7536
+    },
+    "departure": "09:00",
+    "arrival": "10:00",
+    "duration_hrs": 1,
+    "fare_ngn": 1500,
+    "class": "Economy",
+    "seats_available": 50,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S008",
+    "provider_id": "P011",
+    "origin": "Warri",
+    "destination": "Forcados",
+    "origin_coords": {
+      "lat": 5.5174,
+      "lng": 5.7536
+    },
+    "destination_coords": {
+      "lat": 5.3507,
+      "lng": 5.85
+    },
+    "departure": "08:00",
+    "arrival": "10:30",
+    "duration_hrs": 2.5,
+    "fare_ngn": 3000,
+    "class": "Economy",
+    "seats_available": 45,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ]
+  },
+  {
+    "id": "S009",
+    "provider_id": "P011",
+    "origin": "Forcados",
+    "destination": "Warri",
+    "origin_coords": {
+      "lat": 5.3507,
+      "lng": 5.85
+    },
+    "destination_coords": {
+      "lat": 5.5174,
+      "lng": 5.7536
+    },
+    "departure": "12:00",
+    "arrival": "14:30",
+    "duration_hrs": 2.5,
+    "fare_ngn": 3000,
+    "class": "Economy",
+    "seats_available": 45,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ]
+  },
+  {
+    "id": "S010",
+    "provider_id": "P009",
+    "origin": "Port Harcourt",
+    "destination": "Bonny",
+    "origin_coords": {
+      "lat": 4.8156,
+      "lng": 7.0498
+    },
+    "destination_coords": {
+      "lat": 4.4422,
+      "lng": 7.1531
+    },
+    "departure": "07:30",
+    "arrival": "09:00",
+    "duration_hrs": 1.5,
+    "fare_ngn": 2500,
+    "class": "Economy",
+    "seats_available": 70,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S011",
+    "provider_id": "P009",
+    "origin": "Bonny",
+    "destination": "Port Harcourt",
+    "origin_coords": {
+      "lat": 4.4422,
+      "lng": 7.1531
+    },
+    "destination_coords": {
+      "lat": 4.8156,
+      "lng": 7.0498
+    },
+    "departure": "10:00",
+    "arrival": "11:30",
+    "duration_hrs": 1.5,
+    "fare_ngn": 2500,
+    "class": "Economy",
+    "seats_available": 70,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S012",
+    "provider_id": "P009",
+    "origin": "Port Harcourt",
+    "destination": "Bonny",
+    "origin_coords": {
+      "lat": 4.8156,
+      "lng": 7.0498
+    },
+    "destination_coords": {
+      "lat": 4.4422,
+      "lng": 7.1531
+    },
+    "departure": "13:00",
+    "arrival": "14:30",
+    "duration_hrs": 1.5,
+    "fare_ngn": 3000,
+    "class": "Premium",
+    "seats_available": 40,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "S013",
+    "provider_id": "P012",
+    "origin": "Calabar",
+    "destination": "Uyo",
+    "origin_coords": {
+      "lat": 4.9517,
+      "lng": 8.322
+    },
+    "destination_coords": {
+      "lat": 5.051,
+      "lng": 7.9328
+    },
+    "departure": "08:00",
+    "arrival": "10:30",
+    "duration_hrs": 2.5,
+    "fare_ngn": 3500,
+    "class": "Economy",
+    "seats_available": 55,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ]
+  },
+  {
+    "id": "S014",
+    "provider_id": "P012",
+    "origin": "Uyo",
+    "destination": "Calabar",
+    "origin_coords": {
+      "lat": 5.051,
+      "lng": 7.9328
+    },
+    "destination_coords": {
+      "lat": 4.9517,
+      "lng": 8.322
+    },
+    "departure": "11:00",
+    "arrival": "13:30",
+    "duration_hrs": 2.5,
+    "fare_ngn": 3500,
+    "class": "Economy",
+    "seats_available": 55,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ]
+  }
+]

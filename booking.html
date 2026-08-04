@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IJDrives — Nigeria's multi-modal transport marketplace">
+  <title>Book Your Trip | IJDrives</title>
+
+  <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/Gemini_Generated_Image_gh6tetgh6tetgh6t-removebg-preview.png">
+    
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- IJDrives CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/booking.css">
+  <!-- Leaflet.js (maps) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body class="">
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container"></div>
+
+
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="navbar__logo">
+        <div class="navbar__logo-icon">
+          <i class="fa-solid fa-route"></i>
+        </div>
+        <span class="navbar__logo-text">IJ<span>Drives</span></span>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="navbar__links">
+        <li>
+          <a href="index.html" class="navbar__link">
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+        </li>
+        <li>
+          <a href="land.html" class="navbar__link" data-mode="land">
+            <i class="fa-solid fa-bus"></i> Land
+          </a>
+        </li>
+        <li>
+          <a href="sea.html" class="navbar__link" data-mode="sea">
+            <i class="fa-solid fa-ship"></i> Sea
+          </a>
+        </li>
+        <li>
+          <a href="air.html" class="navbar__link" data-mode="air">
+            <i class="fa-solid fa-plane-departure"></i> Air
+          </a>
+        </li>
+        <li>
+          <a href="rail.html" class="navbar__link" data-mode="rail">
+            <i class="fa-solid fa-train"></i> Rail
+          </a>
+        </li>
+        <li>
+          <a href="about.html" class="navbar__link">
+            <i class="fa-solid fa-circle-info"></i> About
+          </a>
+        </li>
+      </ul>
+
+      <!-- Right Actions -->
+      <div class="navbar__actions">
+
+        <!-- Theme toggle -->
+        <button class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+
+        <!-- Wallet chip (logged in only) -->
+        <a href="wallet.html" class="wallet-chip" style="display:none;">
+          <i class="fa-solid fa-wallet"></i>
+          <span class="wallet-chip__balance">₦0.00</span>
+        </a>
+
+        <!-- Auth buttons (logged out) -->
+        <div class="navbar__auth">
+          <a href="login.html" class="btn btn-ghost btn-sm">Log In</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+
+        <!-- User dropdown (logged in) -->
+        <div class="user-menu" style="display:none;">
+          <div class="user-avatar" role="button" tabindex="0" aria-label="User menu">U</div>
+          <div class="user-dropdown">
+            <div class="user-dropdown__header">
+              <div class="user-dropdown__name">User Name</div>
+              <div class="user-dropdown__email">user@email.com</div>
+            </div>
+            <a href="dashboard.html" class="user-dropdown__item">
+              <i class="fa-solid fa-gauge"></i> Dashboard
+            </a>
+            <a href="wallet.html" class="user-dropdown__item">
+              <i class="fa-solid fa-wallet"></i> My Wallet
+            </a>
+            <a href="dashboard.html#bookings" class="user-dropdown__item">
+              <i class="fa-solid fa-ticket"></i> My Bookings
+            </a>
+            <div class="divider" style="margin: 6px 0;"></div>
+            <div class="user-dropdown__item danger" data-action="logout">
+              <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <div class="navbar__hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="page-content">
+    <div class="container">
+      <div style="padding: 32px 0 8px;">
+        <a href="javascript:history.back()" class="btn btn-ghost btn-sm" style="margin-bottom:16px;">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </a>
+        <!-- Step indicator -->
+        <div class="booking-steps" id="booking-steps" style="margin-bottom:48px; padding-bottom:24px;">
+          <div class="booking-step active">
+            <div class="booking-step__circle">1</div>
+            <span class="booking-step__label">Route</span>
+          </div>
+          <div class="booking-step__line"></div>
+          <div class="booking-step">
+            <div class="booking-step__circle">2</div>
+            <span class="booking-step__label">Details</span>
+          </div>
+          <div class="booking-step__line"></div>
+          <div class="booking-step">
+            <div class="booking-step__circle">3</div>
+            <span class="booking-step__label">Seat</span>
+          </div>
+          <div class="booking-step__line"></div>
+          <div class="booking-step">
+            <div class="booking-step__circle">4</div>
+            <span class="booking-step__label">Pay</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-layout">
+        <!-- Main booking form -->
+        <div id="booking-form-area">
+          <!-- Rendered by booking.js -->
+          <div class="booking-card">
+            <div style="text-align:center; padding:32px; color:var(--text-muted);">
+              <div class="spinner spinner-lg" style="margin:0 auto 16px;"></div>
+              <p>Loading booking details...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary sidebar -->
+        <aside class="booking-summary" id="booking-summary">
+          <div class="booking-summary__title">
+            <i class="fa-solid fa-receipt"></i> Booking Summary
+          </div>
+          <div id="booking-summary-content">
+            <!-- Rendered by booking.js -->
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="footer">
+    <div class="footer__grid">
+
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">
+          <div class="footer__logo-icon">
+            <i class="fa-solid fa-route"></i>
+          </div>
+          <span class="footer__logo-text">IJ<span>Drives</span></span>
+        </a>
+        <p class="footer__tagline">
+          Nigeria's multi-modal transport marketplace. Land, sea, air, and rail — all in one place.
+        </p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Transport -->
+      <div>
+        <div class="footer__col-title">Transport</div>
+        <ul class="footer__links">
+          <li><a href="land.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Land Travel</a></li>
+          <li><a href="sea.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sea Travel</a></li>
+          <li><a href="air.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Air Travel</a></li>
+          <li><a href="rail.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Rail Travel</a></li>
+        </ul>
+      </div>
+
+      <!-- Account -->
+      <div>
+        <div class="footer__col-title">Account</div>
+        <ul class="footer__links">
+          <li><a href="signup.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sign Up</a></li>
+          <li><a href="login.html"     class="footer__link"><i class="fa-solid fa-chevron-right"></i> Log In</a></li>
+          <li><a href="dashboard.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Dashboard</a></li>
+          <li><a href="wallet.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> My Wallet</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+          <li><a href="about.html#contact" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; 2026 IJDrives. Built by Ikedi.
+      </p>
+      <span class="footer__demo-badge">
+        <i class="fa-solid fa-flask"></i> Demo Project
+      </span>
+    </div>
+  </footer>
+
+<!-- IJDrives JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/wallet.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/booking-page.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/results",
+      "destination": "/results.html"
+    },
+    {
+      "source": "/booking",
+      "destination": "/booking.html"
+    },
+    {
+      "source": "/confirm",
+      "destination": "/confirm.html"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/dashboard.html"
+    },
+    {
+      "source": "/wallet",
+      "destination": "/wallet.html"
+    }
+  ]
+}

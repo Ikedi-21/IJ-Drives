@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your free IJDrives account and get ₦500 welcome bonus.">
+  <title>Create Account | IJDrives</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/Gemini_Generated_Image_gh6tetgh6tetgh6t-removebg-preview.png">
+    
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- IJDrives CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/auth.css">
+</head>
+<body>
+
+  <div class="toast-container" id="toast-container"></div>
+
+ 
+  
+
+  <!-- ══ MAIN ══ -->
+  <main>
+    <div class="auth-page">
+
+      <!-- Left: branding panel -->
+      <div class="auth-panel-left">
+        <a href="index.html" class="auth-panel-left__logo">
+          
+        </a>
+
+        <div class="auth-panel-left__content">
+          <h2 class="auth-panel-left__title">
+            Start Your<br>Journey with <span>IJDrives</span>
+          </h2>
+          <p class="auth-panel-left__subtitle">
+            Create your free account and unlock Nigeria's most complete transport booking platform.
+          </p>
+          <div class="auth-features">
+            <div class="auth-feature">
+              <i class="fa-solid fa-wallet"></i>
+              <span>&#8358;500 welcome bonus credited instantly</span>
+            </div>
+            <div class="auth-feature">
+              <i class="fa-solid fa-ticket"></i>
+              <span>Book land, sea, air and rail travel</span>
+            </div>
+            <div class="auth-feature">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <span>Full booking history on your dashboard</span>
+            </div>
+            <div class="auth-feature">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Encrypted password storage — no plain text</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="auth-panel-left__bottom">&copy; 2026 IJDrives &mdash; Kedi's Design</p>
+      </div>
+
+      <!-- Right: signup form -->
+      <div class="auth-panel-right">
+        <div class="auth-form-container">
+
+          <h1 class="auth-title" >Create Account</h1>
+          <p class="auth-subtitle">
+            Already have an account? <a href="login.html">Log in</a>
+          </p>
+
+          <div class="auth-form" id="signup-form">
+
+            <!-- Full Name -->
+            <div class="form-group">
+              <label class="form-label" for="fullName">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                class="form-input"
+                placeholder="e.g. Chidi Okeke"
+                autocomplete="name"
+                spellcheck="false"
+              >
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                class="form-input"
+                placeholder="you@example.com"
+                autocomplete="email"
+                spellcheck="false"
+              >
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label class="form-label" for="password">Password</label>
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  class="form-input"
+                  placeholder="Min. 6 characters"
+                  autocomplete="new-password"
+                >
+                <button class="password-toggle" type="button" id="toggle-pw" aria-label="Show password">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <!-- Strength meter — driven by signup.js -->
+              <div class="password-strength">
+                <div class="password-strength__bar" id="pw-strength-bar"></div>
+              </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              <label class="form-label" for="confirmPassword">Confirm Password</label>
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  class="form-input"
+                  placeholder="Repeat your password"
+                  autocomplete="new-password"
+                >
+                <button class="password-toggle" type="button" id="toggle-cpw" aria-label="Show confirm password">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <button class="btn btn-primary btn-full btn-lg" id="signup-btn" type="button">
+              <i class="fa-solid fa-user-plus"></i> Create Account
+            </button>
+
+          </div>
+          <!-- /auth-form -->
+
+          <p class="auth-footer">
+            By signing up you agree to our
+            <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+          </p>
+
+        </div>
+      </div>
+      <!-- /auth-panel-right -->
+
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer" >
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">
+          <div class="footer__logo-icon"><i class="fa-solid fa-route"></i></div>
+          <span class="footer__logo-text">IJ<span>Drives</span></span>
+        </a>
+        <p class="footer__tagline">Nigeria's multi-modal transport marketplace. Land, sea, air, and rail — all in one place.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Transport</div>
+        <ul class="footer__links">
+          <li><a href="land.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Land Travel</a></li>
+          <li><a href="sea.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sea Travel</a></li>
+          <li><a href="air.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Air Travel</a></li>
+          <li><a href="rail.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Rail Travel</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Account</div>
+        <ul class="footer__links">
+          <li><a href="signup.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sign Up</a></li>
+          <li><a href="login.html"     class="footer__link"><i class="fa-solid fa-chevron-right"></i> Log In</a></li>
+          <li><a href="dashboard.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Dashboard</a></li>
+          <li><a href="wallet.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> My Wallet</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="about.html"         class="footer__link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+          <li><a href="about.html#contact" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copyright">&copy; 2026 IJDrives. Built by Ikedi.</p>
+      <span class="footer__demo-badge"><i class="fa-solid fa-flask"></i> Kedi's Design</span>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ══
+       Load order: config → db → utils → theme → auth → signup
+       signup.js must be last — it depends on Auth and Utils being ready.
+  ══ -->
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/signup.js"></script>
+
+</body>
+</html>

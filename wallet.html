@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IJDrives — Nigeria's multi-modal transport marketplace">
+  <title>My Wallet | IJDrives</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/Gemini_Generated_Image_gh6tetgh6tetgh6t-removebg-preview.png">
+    
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- IJDrives CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/dashboard.css">
+</head>
+<body class="">
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container"></div>
+
+
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="navbar__logo">
+        <div class="navbar__logo-icon">
+          <i class="fa-solid fa-route"></i>
+        </div>
+        <span class="navbar__logo-text">IJ<span>Drives</span></span>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="navbar__links">
+        <li>
+          <a href="index.html" class="navbar__link">
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+        </li>
+        <li>
+          <a href="land.html" class="navbar__link" data-mode="land">
+            <i class="fa-solid fa-bus"></i> Land
+          </a>
+        </li>
+        <li>
+          <a href="sea.html" class="navbar__link" data-mode="sea">
+            <i class="fa-solid fa-ship"></i> Sea
+          </a>
+        </li>
+        <li>
+          <a href="air.html" class="navbar__link" data-mode="air">
+            <i class="fa-solid fa-plane-departure"></i> Air
+          </a>
+        </li>
+        <li>
+          <a href="rail.html" class="navbar__link" data-mode="rail">
+            <i class="fa-solid fa-train"></i> Rail
+          </a>
+        </li>
+        <li>
+          <a href="about.html" class="navbar__link">
+            <i class="fa-solid fa-circle-info"></i> About
+          </a>
+        </li>
+      </ul>
+
+      <!-- Right Actions -->
+      <div class="navbar__actions">
+
+        <!-- Theme toggle -->
+        <button class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+
+        <!-- Wallet chip (logged in only) -->
+        <a href="wallet.html" class="wallet-chip" style="display:none;">
+          <i class="fa-solid fa-wallet"></i>
+          <span class="wallet-chip__balance">₦0.00</span>
+        </a>
+
+        <!-- Auth buttons (logged out) -->
+        <div class="navbar__auth">
+          <a href="login.html" class="btn btn-ghost btn-sm">Log In</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+
+        <!-- User dropdown (logged in) -->
+        <div class="user-menu" style="display:none;">
+          <div class="user-avatar" role="button" tabindex="0" aria-label="User menu">U</div>
+          <div class="user-dropdown">
+            <div class="user-dropdown__header">
+              <div class="user-dropdown__name">User Name</div>
+              <div class="user-dropdown__email">user@email.com</div>
+            </div>
+            <a href="dashboard.html" class="user-dropdown__item">
+              <i class="fa-solid fa-gauge"></i> Dashboard
+            </a>
+            <a href="wallet.html" class="user-dropdown__item">
+              <i class="fa-solid fa-wallet"></i> My Wallet
+            </a>
+            <a href="dashboard.html#bookings" class="user-dropdown__item">
+              <i class="fa-solid fa-ticket"></i> My Bookings
+            </a>
+            <div class="divider" style="margin: 6px 0;"></div>
+            <div class="user-dropdown__item danger" data-action="logout">
+              <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <div class="navbar__hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="page-content">
+    <div class="container">
+      <div class="dashboard-layout">
+
+        <aside class="dash-sidebar">
+          <div class="dash-sidebar__profile">
+            <div class="dash-sidebar__avatar" id="dash-avatar">U</div>
+            <div class="dash-sidebar__name" id="dash-name">Loading...</div>
+            <div class="dash-sidebar__email" id="dash-email"></div>
+          </div>
+          <nav class="dash-nav">
+            <a href="dashboard.html" class="dash-nav__item">
+              <i class="fa-solid fa-gauge"></i> Overview
+            </a>
+            <a href="wallet.html" class="dash-nav__item active">
+              <i class="fa-solid fa-wallet"></i> My Wallet
+            </a>
+            <a href="dashboard.html#bookings" class="dash-nav__item">
+              <i class="fa-solid fa-ticket"></i> My Bookings
+            </a>
+            <div class="divider"></div>
+            <a href="index.html" class="dash-nav__item">
+              <i class="fa-solid fa-magnifying-glass"></i> Find a Route
+            </a>
+            <div class="dash-nav__item danger" data-action="logout" style="cursor:pointer; margin-top:8px; color:var(--danger);">
+              <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </div>
+          </nav>
+        </aside>
+
+        <div>
+          <!-- Balance hero -->
+          <div class="wallet-hero reveal">
+            <i class="wallet-hero__icon fa-solid fa-wallet"></i>
+            <div class="wallet-hero__label">Available Balance</div>
+            <div class="wallet-hero__balance">
+              <span class="currency">₦</span><span id="wallet-balance">0.00</span>
+            </div>
+            <button class="btn btn-success btn-lg" id="deposit-btn">
+              <i class="fa-solid fa-arrow-down"></i> Deposit Funds
+            </button>
+          </div>
+
+          <!-- Transaction history -->
+          <div class="dash-section reveal">
+            <div class="dash-section__header">
+              <div class="dash-section__title">
+                <i class="fa-solid fa-list-ul" style="color:var(--success);"></i> Transaction History
+              </div>
+            </div>
+            <div id="tx-history-container">
+              <!-- Rendered by JS -->
+              <div style="text-align:center; padding:32px; color:var(--text-muted);">
+                <i class="fa-solid fa-coins" style="font-size:2rem; margin-bottom:12px; display:block;"></i>
+                <p>No transactions yet. Deposit funds to get started!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deposit Modal -->
+    <div class="modal-overlay" id="deposit-modal">
+      <div class="modal">
+        <div class="modal__header">
+          <div class="modal__title"><i class="fa-solid fa-wallet" style="color:var(--success); margin-right:8px;"></i>Deposit Funds</div>
+          <button class="modal__close" id="close-deposit-modal"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label class="form-label">Amount (₦)</label>
+          <input type="number" id="deposit-amount" class="form-input" placeholder="e.g. 5000" min="500" max="500000">
+          <span style="font-size:0.78rem; color:var(--text-muted); margin-top:4px;">Min: ₦500 · Max: ₦500,000</span>
+        </div>
+        <!-- Quick amount shortcuts -->
+        <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="500">₦500</button>
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="1000">₦1,000</button>
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="2000">₦2,000</button>
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="5000">₦5,000</button>
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="10000">₦10,000</button>
+        </div>
+                <div style="background:var(--info-bg); border:1px solid var(--info); border-radius:var(--radius-md); padding:12px 14px; margin-bottom:20px; font-size:0.85rem; color:var(--info); display:flex; gap:8px; align-items:center;">
+          <i class="fa-solid fa-circle-info"></i>
+          This is a demo — no real money is involved. Funds are added to your IJDrives wallet instantly.
+        </div>
+        <button class="btn btn-success btn-full btn-lg" id="confirm-deposit-btn">
+          <i class="fa-solid fa-check"></i> Confirm Deposit
+        </button>
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="footer">
+    <div class="footer__grid">
+
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">
+          <div class="footer__logo-icon">
+            <i class="fa-solid fa-route"></i>
+          </div>
+          <span class="footer__logo-text">IJ<span>Drives</span></span>
+        </a>
+        <p class="footer__tagline">
+          Nigeria's multi-modal transport marketplace. Land, sea, air, and rail — all in one place.
+        </p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Transport -->
+      <div>
+        <div class="footer__col-title">Transport</div>
+        <ul class="footer__links">
+          <li><a href="land.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Land Travel</a></li>
+          <li><a href="sea.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sea Travel</a></li>
+          <li><a href="air.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Air Travel</a></li>
+          <li><a href="rail.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Rail Travel</a></li>
+        </ul>
+      </div>
+
+      <!-- Account -->
+      <div>
+        <div class="footer__col-title">Account</div>
+        <ul class="footer__links">
+          <li><a href="signup.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sign Up</a></li>
+          <li><a href="login.html"     class="footer__link"><i class="fa-solid fa-chevron-right"></i> Log In</a></li>
+          <li><a href="dashboard.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Dashboard</a></li>
+          <li><a href="wallet.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> My Wallet</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+          <li><a href="about.html#contact" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; 2026 IJDrives. Built by Ikedi.
+      </p>
+      <span class="footer__demo-badge">
+        <i class="fa-solid fa-flask"></i> Demo Project
+      </span>
+    </div>
+  </footer>
+
+<!-- IJDrives JS -->
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/wallet.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/wallet-page.js"></script>
+
+</body>
+</html>

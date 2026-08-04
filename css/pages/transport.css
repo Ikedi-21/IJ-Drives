@@ -1,0 +1,602 @@
+/* 
+   IJDrives — pages/transport.css
+   Shared styles for land, sea, air, rail pages
+    */
+
+/* 
+   TRANSPORT HERO
+ */
+.transport-hero {
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+/* Hero background image — set via inline style on each page */
+.transport-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: 0;
+  transition: opacity var(--transition-slow);
+}
+[data-theme="light"] .transport-hero__bg { opacity: 0.2; }
+
+/* Gradient fade to page background at the bottom */
+.transport-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(13,13,26,0.3) 0%,
+    rgba(13,13,26,0.1) 40%,
+    var(--bg-primary) 100%
+  );
+  z-index: 1;
+}
+[data-theme="light"] .transport-hero__overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(244,244,248,0.2) 0%,
+    rgba(244,244,248,0.05) 40%,
+    var(--bg-primary) 100%
+  );
+}
+
+.transport-hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.transport-hero__mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  border: 1px solid currentColor;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+}
+
+.transport-hero__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.transport-hero__subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+}
+
+/* 
+   TWO-COLUMN LAYOUT (sidebar + listings)
+ */
+.transport-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: start;
+  padding: 40px 0 80px;
+}
+
+/* 
+   MAP PANEL
+   Critical: the inner #xxx-map div must be
+   a plain block element — NOT display:flex —
+   so Leaflet can calculate tile positions.
+ */
+.map-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  /* Do NOT use overflow:hidden here — it clips Leaflet's tile
+     images and zoom controls that extend to the panel edges */
+  overflow: visible;
+  margin-bottom: 28px;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.map-panel__header {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/*
+  CRITICAL: Do NOT set display:flex or position:absolute here.
+  Leaflet measures this element's offsetWidth/offsetHeight to
+  calculate tile grid dimensions. It must be display:block
+  (the default) with an explicit pixel height.
+  overflow:hidden clips at border-radius without breaking tiles.
+*/
+.map-panel__map {
+  height: 300px;
+  background: var(--bg-secondary);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Placeholder — floats ABOVE Leaflet tiles via z-index.
+   position:absolute means it has zero effect on the container
+   dimensions that Leaflet measures. */
+.map-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 500;
+  /* No background — tiles show through beneath the text */
+  /* A subtle text shadow makes the label readable on any tile colour */
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 0 12px rgba(0,0,0,0.4);
+  transition: opacity 0.3s ease;
+}
+
+/* Leaflet manages its own container sizing.
+   We only enforce the parent height — Leaflet fills it. */
+.map-panel__map .leaflet-container {
+  width:  100% !important;
+  height: 100% !important;
+  background: var(--bg-secondary);
+}
+@media (max-width: 768px) {
+  .map-panel__map {
+    height: 400px; /* Taller map on mobile so the route isn't too small */
+  }
+}
+
+/* ── Leaflet control overrides ── */
+.leaflet-control-attribution {
+  font-size: 0.62rem !important;
+  background: rgba(13, 13, 26, 0.78) !important;
+  color: #9090A8 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px 0 0 0 !important;
+}
+[data-theme="light"] .leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #555570 !important;
+}
+.leaflet-control-attribution a { color: var(--accent) !important; }
+
+.leaflet-control-zoom a {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+  width: 28px !important;
+  height: 28px !important;
+  line-height: 28px !important;
+  font-size: 1rem !important;
+}
+.leaflet-control-zoom a:hover {
+  background: var(--bg-card-hover) !important;
+  color: var(--accent) !important;
+}
+.leaflet-bar { border: 1px solid var(--border) !important; box-shadow: var(--shadow-sm) !important; }
+
+/* Popup bubbles match IJDrives card style */
+.leaflet-popup-content-wrapper {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-md) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.85rem !important;
+  padding: 10px 14px !important;
+}
+.leaflet-popup-tip-container { display: none; }
+.leaflet-popup-close-button {
+  color: var(--text-muted) !important;
+  font-size: 1rem !important;
+  top: 6px !important;
+  right: 8px !important;
+}
+
+/* 
+   FILTER SIDEBAR
+ */
+.filter-sidebar {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: sticky;
+  top: calc(var(--nav-height) + 16px);
+}
+.filter-sidebar__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+}
+.filter-group { margin-bottom: 24px; }
+.filter-group__label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: block;
+}
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+.filter-option:hover { color: var(--text-primary); }
+.filter-option input[type="checkbox"] { accent-color: var(--accent); }
+
+/* 
+   ROUTE LISTINGS
+ */
+.routes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.routes-count {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+.routes-count strong { color: var(--text-primary); }
+
+/* Route card */
+.route-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  transition: all var(--transition-mid);
+  margin-bottom: 12px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+.route-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--mode-color, var(--accent));
+  transform: scaleY(0);
+  transition: transform var(--transition-mid);
+  border-radius: 3px 0 0 3px;
+}
+.route-card:hover::before { transform: scaleY(1); }
+.route-card:hover {
+  border-color: var(--mode-color, var(--accent));
+  box-shadow: var(--shadow-md);
+  transform: translateX(4px);
+}
+
+.route-card__left {}
+
+.route-card__provider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.route-card__provider-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--mode-color-bg, var(--danger-bg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--mode-color, var(--accent));
+  flex-shrink: 0;
+}
+.route-card__provider-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+.route-card__stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.7rem;
+  color: var(--warning);
+  margin-top: 2px;
+}
+
+.route-card__route {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.route-card__city {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+.route-card__arrow {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.route-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.route-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.route-card__meta-item i { font-size: 0.7rem; }
+
+.route-card__class-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--mode-color-bg, var(--danger-bg));
+  color: var(--mode-color, var(--accent));
+  border: 1px solid var(--mode-color-bg, var(--danger-bg));
+}
+
+/* Right: fare + CTA */
+.route-card__right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.route-card__fare {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.route-card__fare-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.route-card__seats {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--success);
+}
+.route-card__seats.low { color: var(--warning); }
+.route-card__seats.full { color: var(--danger); }
+
+/* 
+   EMPTY STATE
+ */
+.empty-state {
+  text-align: center;
+  padding: 64px 24px;
+}
+.empty-state i {
+  font-size: 3rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  display: block;
+  opacity: 0.4;
+}
+.empty-state h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.empty-state p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* 
+   RESPONSIVE
+ */
+@media (max-width: 900px) {
+  .transport-layout {
+    grid-template-columns: 1fr;
+  }
+  .filter-sidebar { position: static; }
+  .map-panel__map { height: 240px; }
+}
+@media (max-width: 600px) {
+  .route-card { grid-template-columns: 1fr; }
+  .route-card__right { text-align: left; align-items: flex-start; }
+  .map-panel__map { height: 200px; }
+}
+
+/* ── Route card selected state ─────────────────────────────── */
+.route-card--selected {
+  border-color: var(--mode-color, var(--accent)) !important;
+  box-shadow: 0 0 0 2px var(--mode-color, var(--accent)),
+              var(--shadow-md) !important;
+  transform: translateX(4px);
+}
+.route-card--selected::before {
+  transform: scaleY(1) !important;
+}
+
+/* ── Inline route search bar ────────────────────────────────── */
+.route-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.route-search-bar:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.10);
+}
+
+.route-search-bar__field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.route-search-bar__field i {
+  font-size: 0.75rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.route-search-bar__field input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  width: 100%;
+  min-width: 0;
+}
+.route-search-bar__field input::placeholder {
+  color: var(--text-muted);
+}
+
+.route-search-bar__sep {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  padding: 0 2px;
+}
+
+.route-search-bar__clear {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+.route-search-bar__clear:hover {
+  background: var(--danger-bg);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+@media (max-width: 480px) {
+  .route-search-bar { flex-wrap: wrap; }
+  .route-search-bar__sep { display: none; }
+  .route-search-bar__field { min-width: 120px; }
+}
+
+/* 
+   POLISH — Day 11
+ */
+
+/* ── Route card — smoother hover transition ── */
+.route-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+/* ── Transport hero — better mobile height ── */
+@media (max-width: 640px) {
+  .transport-hero        { min-height: 40vh; padding-bottom: 32px; }
+  .transport-hero__title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+}
+
+/* ── Filter sidebar — mobile horizontal scroll ── */
+@media (max-width: 900px) {
+  .filter-sidebar {
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .filter-sidebar__title { width: 100%; margin-bottom: 0; }
+  .filter-group          { min-width: 160px; margin-bottom: 0; }
+}
+
+/* ── Route card mobile ── */
+@media (max-width: 520px) {
+  .route-card {
+    padding: 16px;
+  }
+  .route-card__city      { font-size: 0.95rem; }
+  .route-card__fare      { font-size: 1.15rem; }
+}

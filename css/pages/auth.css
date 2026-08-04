@@ -1,0 +1,315 @@
+/*
+   IJDrives — pages/auth.css
+   Signup & Login page styles
+   Fonts: Space Grotesk + Plus Jakarta Sans
+   */
+
+/* ── Full-page two-column layout ── */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* 
+   LEFT PANEL — branding / features
+*/
+.auth-panel-left {
+  background: linear-gradient(145deg, #0D0D1A 0%, #1A1A2E 55%, #0F3460 100%);
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blobs */
+.auth-panel-left::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: rgba(233, 69, 96, 0.08);
+  pointer-events: none;
+}
+.auth-panel-left::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(15, 52, 96, 0.28);
+  pointer-events: none;
+}
+
+/* Logo */
+.auth-panel-left__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+.auth-panel-left__logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+}
+.auth-panel-left__logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.auth-panel-left__logo-text span { color: var(--accent); }
+
+/* Body copy */
+.auth-panel-left__content {
+  position: relative;
+  z-index: 1;
+}
+.auth-panel-left__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.auth-panel-left__title span { color: var(--accent); }
+
+.auth-panel-left__subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: rgba(255,255,255,0.58);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+/* Feature list */
+.auth-features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.auth-feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: rgba(255,255,255,0.78);
+  font-size: 0.9rem;
+}
+.auth-feature i {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: rgba(233, 69, 96, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 0.88rem;
+  flex-shrink: 0;
+}
+
+/* Footer note */
+.auth-panel-left__bottom {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: rgba(255,255,255,0.28);
+  font-size: 0.76rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* 
+   RIGHT PANEL — form
+*/
+.auth-panel-right {
+  background: var(--bg-primary);
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  transition: background var(--transition-mid);
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Headings */
+.auth-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.auth-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+.auth-subtitle a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.auth-subtitle a:hover { text-decoration: underline; }
+
+/* Form layout */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Override form-label font */
+.auth-form .form-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+/* Override form-input for auth pages */
+.auth-form .form-input {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  padding: 13px 16px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* ── Password field wrapper ── */
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper .form-input {
+  padding-right: 48px; /* room for the toggle button */
+}
+.password-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.88rem;
+  padding: 4px;
+  transition: color var(--transition-fast);
+  line-height: 1;
+}
+.password-toggle:hover { color: var(--text-primary); }
+
+/* ── Password strength bar ── */
+.password-strength {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.password-strength__bar {
+  height: 100%;
+  width: 0;
+  border-radius: 2px;
+  transition: width 0.35s ease, background 0.35s ease;
+}
+
+/* ── Field-level error message (injected by JS) ── */
+.field-error {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  color: var(--danger);
+  margin-top: 5px;
+}
+
+/* Input in error state */
+.auth-form .form-input[style*="border-color: var(--danger)"],
+.auth-form .form-input[style*="border-color:var(--danger)"] {
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.10);
+}
+
+/* ── Submit button ── */
+.auth-form .btn-primary {
+  margin-top: 4px;
+  padding: 14px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+}
+.auth-form .btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Footer note ── */
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.auth-footer a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.auth-footer a:hover { text-decoration: underline; }
+
+/* ── Divider (optional, between social/email methods) ── */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin: 4px 0;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* 
+   RESPONSIVE
+*/
+@media (max-width: 768px) {
+  .auth-page             { grid-template-columns: 1fr; }
+  .auth-panel-left       { display: none; }
+  .auth-panel-right      { padding: 40px 24px; min-height: 100vh; justify-content: flex-start; padding-top: 60px; }
+  .auth-form-container   { max-width: 100%; }
+}
+
+@media (max-width: 400px) {
+  .auth-panel-right { padding: 32px 20px; }
+}

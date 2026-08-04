@@ -1,0 +1,520 @@
+[
+  {
+    "id": "A001",
+    "provider_id": "P013",
+    "origin": "Lagos",
+    "destination": "Abuja",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "departure": "06:00",
+    "arrival": "07:00",
+    "duration_hrs": 1,
+    "fare_ngn": 35000,
+    "class": "Economy",
+    "seats_available": 120,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A002",
+    "provider_id": "P013",
+    "origin": "Lagos",
+    "destination": "Abuja",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "departure": "09:00",
+    "arrival": "10:00",
+    "duration_hrs": 1,
+    "fare_ngn": 38000,
+    "class": "Economy",
+    "seats_available": 120,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A003",
+    "provider_id": "P013",
+    "origin": "Lagos",
+    "destination": "Abuja",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "departure": "14:00",
+    "arrival": "15:00",
+    "duration_hrs": 1,
+    "fare_ngn": 32000,
+    "class": "Economy",
+    "seats_available": 130,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A004",
+    "provider_id": "P013",
+    "origin": "Lagos",
+    "destination": "Abuja",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "departure": "18:00",
+    "arrival": "19:00",
+    "duration_hrs": 1,
+    "fare_ngn": 42000,
+    "class": "Business",
+    "seats_available": 24,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A005",
+    "provider_id": "P014",
+    "origin": "Lagos",
+    "destination": "Abuja",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "departure": "07:30",
+    "arrival": "08:30",
+    "duration_hrs": 1,
+    "fare_ngn": 40000,
+    "class": "Economy",
+    "seats_available": 100,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A006",
+    "provider_id": "P015",
+    "origin": "Lagos",
+    "destination": "Abuja",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "departure": "10:30",
+    "arrival": "11:30",
+    "duration_hrs": 1,
+    "fare_ngn": 34000,
+    "class": "Economy",
+    "seats_available": 110,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A007",
+    "provider_id": "P013",
+    "origin": "Abuja",
+    "destination": "Lagos",
+    "origin_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "destination_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "departure": "08:00",
+    "arrival": "09:00",
+    "duration_hrs": 1,
+    "fare_ngn": 35000,
+    "class": "Economy",
+    "seats_available": 120,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A008",
+    "provider_id": "P013",
+    "origin": "Abuja",
+    "destination": "Lagos",
+    "origin_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "destination_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "departure": "16:00",
+    "arrival": "17:00",
+    "duration_hrs": 1,
+    "fare_ngn": 38000,
+    "class": "Economy",
+    "seats_available": 125,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A009",
+    "provider_id": "P013",
+    "origin": "Lagos",
+    "destination": "Port Harcourt",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 4.8156,
+      "lng": 7.0498
+    },
+    "departure": "07:00",
+    "arrival": "08:00",
+    "duration_hrs": 1,
+    "fare_ngn": 28000,
+    "class": "Economy",
+    "seats_available": 130,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A010",
+    "provider_id": "P014",
+    "origin": "Lagos",
+    "destination": "Port Harcourt",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 4.8156,
+      "lng": 7.0498
+    },
+    "departure": "10:00",
+    "arrival": "11:00",
+    "duration_hrs": 1,
+    "fare_ngn": 32000,
+    "class": "Economy",
+    "seats_available": 110,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A011",
+    "provider_id": "P015",
+    "origin": "Port Harcourt",
+    "destination": "Lagos",
+    "origin_coords": {
+      "lat": 4.8156,
+      "lng": 7.0498
+    },
+    "destination_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "departure": "13:00",
+    "arrival": "14:00",
+    "duration_hrs": 1,
+    "fare_ngn": 28000,
+    "class": "Economy",
+    "seats_available": 130,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A012",
+    "provider_id": "P013",
+    "origin": "Lagos",
+    "destination": "Kano",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 12.0022,
+      "lng": 8.592
+    },
+    "departure": "07:00",
+    "arrival": "08:30",
+    "duration_hrs": 1.5,
+    "fare_ngn": 45000,
+    "class": "Economy",
+    "seats_available": 140,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A013",
+    "provider_id": "P016",
+    "origin": "Lagos",
+    "destination": "Kano",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 12.0022,
+      "lng": 8.592
+    },
+    "departure": "11:00",
+    "arrival": "12:30",
+    "duration_hrs": 1.5,
+    "fare_ngn": 38000,
+    "class": "Economy",
+    "seats_available": 150,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A014",
+    "provider_id": "P013",
+    "origin": "Kano",
+    "destination": "Lagos",
+    "origin_coords": {
+      "lat": 12.0022,
+      "lng": 8.592
+    },
+    "destination_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "departure": "09:00",
+    "arrival": "10:30",
+    "duration_hrs": 1.5,
+    "fare_ngn": 45000,
+    "class": "Economy",
+    "seats_available": 140,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A015",
+    "provider_id": "P014",
+    "origin": "Abuja",
+    "destination": "Port Harcourt",
+    "origin_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "destination_coords": {
+      "lat": 4.8156,
+      "lng": 7.0498
+    },
+    "departure": "08:30",
+    "arrival": "09:45",
+    "duration_hrs": 1.25,
+    "fare_ngn": 30000,
+    "class": "Economy",
+    "seats_available": 120,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A016",
+    "provider_id": "P015",
+    "origin": "Port Harcourt",
+    "destination": "Abuja",
+    "origin_coords": {
+      "lat": 4.8156,
+      "lng": 7.0498
+    },
+    "destination_coords": {
+      "lat": 9.0579,
+      "lng": 7.4951
+    },
+    "departure": "11:00",
+    "arrival": "12:15",
+    "duration_hrs": 1.25,
+    "fare_ngn": 30000,
+    "class": "Economy",
+    "seats_available": 115,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  {
+    "id": "A017",
+    "provider_id": "P017",
+    "origin": "Lagos",
+    "destination": "Enugu",
+    "origin_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "destination_coords": {
+      "lat": 6.4584,
+      "lng": 7.5464
+    },
+    "departure": "09:00",
+    "arrival": "10:00",
+    "duration_hrs": 1,
+    "fare_ngn": 25000,
+    "class": "Economy",
+    "seats_available": 70,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ]
+  },
+  {
+    "id": "A018",
+    "provider_id": "P017",
+    "origin": "Enugu",
+    "destination": "Lagos",
+    "origin_coords": {
+      "lat": 6.4584,
+      "lng": 7.5464
+    },
+    "destination_coords": {
+      "lat": 6.5244,
+      "lng": 3.3792
+    },
+    "departure": "12:00",
+    "arrival": "13:00",
+    "duration_hrs": 1,
+    "fare_ngn": 25000,
+    "class": "Economy",
+    "seats_available": 70,
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ]
+  }
+]

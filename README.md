@@ -1,6 +1,15 @@
 # IJDrives
 
-Nigeria's multi-modal transport marketplace demo.
+A multi-modal transport marketplace built for the Nigerian market, connecting riders 
+with a range of transport options through a single platform.
+
+## Overview
+IJDrives combines an interactive, map-based frontend with a FastAPI backend to power 
+real-time transport discovery and booking. Built as a GroTec product.
+
+
+## Status
+🚧 In active development — backend integration complete, deployment in progress.
 
 ## Stack
 - Vanilla HTML, CSS, JavaScript

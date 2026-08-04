@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About IJDrives — Nigeria's multi-modal transport marketplace demo, built by Ikedi.">
+  <title>About | IJDrives</title>
+
+  <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/Gemini_Generated_Image_gh6tetgh6tetgh6t-removebg-preview.png">
+    
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- IJDrives CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    /* ── About page styles ── */
+
+    /* Hero */
+    .about-hero {
+      padding: 100px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(233,69,96,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .about-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--danger-bg);
+      border: 1px solid rgba(233,69,96,0.25);
+      border-radius: var(--radius-full);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .about-hero__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+    .about-hero__title span { color: var(--accent); }
+    .about-hero__subtitle {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .about-hero__badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .about-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      background: var(--bg-card);
+    }
+    .about-badge i { font-size: 0.75rem; }
+    .about-badge.green  { color: var(--success); border-color: var(--success); background: var(--success-bg); }
+    .about-badge.blue   { color: var(--info);    border-color: var(--info);    background: var(--info-bg);    }
+    .about-badge.yellow { color: var(--warning); border-color: var(--warning); background: var(--warning-bg); }
+
+    /* Section divider */
+    .about-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* What is IJDrives */
+    .about-section { padding: 72px 0; }
+    .about-section__eyebrow {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .about-section__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .about-section__body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+    .about-section__body p + p { margin-top: 16px; }
+
+    /* Two-col layout */
+    .about-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-two-col.reverse { direction: rtl; }
+    .about-two-col.reverse > * { direction: ltr; }
+
+    /* Feature cards grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+    .feature-card__icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+    .feature-card__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .feature-card__desc {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Tech stack */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .tech-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
+      text-align: center;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .tech-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .tech-card__icon {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .tech-card__name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .tech-card__desc {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    /* Transport modes strip */
+    .modes-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .mode-strip-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .mode-strip-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .mode-strip-card__icon {
+      width: 52px; height: 52px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .mode-strip-card__label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+    .mode-strip-card__count {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Developer section */
+    .dev-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+    .dev-avatar {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: url(./assets/images/WhatsApp\ Image\ 2026-04-05\ at\ 7.45.03\ PM.jpeg);
+      background-size: contain;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      border: 3px solid rgba(233,69,96,0.3);
+    }
+    .dev-info__name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .dev-info__role {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .dev-info__bio {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 20px;
+    }
+    .dev-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .dev-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .dev-link:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .dev-link i { font-size: 0.8rem; }
+
+    /* Contact section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contact-info__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-info__item:last-child { border-bottom: none; }
+    .contact-info__icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--danger-bg);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .contact-info__label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+    .contact-info__value {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* Contact form */
+    .contact-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+    }
+    .contact-form__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+    .contact-form__fields {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-form__success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+    }
+    .contact-form__success i {
+      font-size: 2.5rem;
+      color: var(--success);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* CTA banner */
+    .about-cta {
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-cta::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(233,69,96,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .about-cta__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .about-cta__sub {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      font-size: 1rem;
+    }
+    .about-cta__actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-two-col   { grid-template-columns: 1fr; gap: 40px; }
+      .about-two-col.reverse { direction: ltr; }
+      .features-grid   { grid-template-columns: 1fr 1fr; }
+      .tech-grid       { grid-template-columns: repeat(2, 1fr); }
+      .modes-strip     { grid-template-columns: repeat(2, 1fr); }
+      .dev-card        { flex-direction: column; align-items: flex-start; gap: 24px; padding: 32px; }
+      .contact-grid    { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .features-grid   { grid-template-columns: 1fr; }
+      .about-cta       { padding: 40px 24px; }
+      .about-hero      { padding: 80px 0 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <!--  NAVBAR  -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <div class="navbar__logo-icon"><i class="fa-solid fa-route"></i></div>
+        <span class="navbar__logo-text">IJ<span>Drives</span></span>
+      </a>
+      <ul class="navbar__links">
+        <li><a href="index.html" class="navbar__link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="land.html"  class="navbar__link" data-mode="land"><i class="fa-solid fa-bus"></i> Land</a></li>
+        <li><a href="sea.html"   class="navbar__link" data-mode="sea"><i class="fa-solid fa-ship"></i> Sea</a></li>
+        <li><a href="air.html"   class="navbar__link" data-mode="air"><i class="fa-solid fa-plane-departure"></i> Air</a></li>
+        <li><a href="rail.html"  class="navbar__link" data-mode="rail"><i class="fa-solid fa-train"></i> Rail</a></li>
+        <li><a href="about.html" class="navbar__link active"><i class="fa-solid fa-circle-info"></i> About</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <button class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <a href="wallet.html" class="wallet-chip" style="display:none;">
+          <i class="fa-solid fa-wallet"></i>
+          <span class="wallet-chip__balance">&#8358;0.00</span>
+        </a>
+        <div class="navbar__auth">
+          <a href="login.html"  class="btn btn-ghost btn-sm">Log In</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div class="user-menu" style="display:none;">
+          <div class="user-avatar" role="button" tabindex="0" aria-label="User menu">U</div>
+          <div class="user-dropdown">
+            <div class="user-dropdown__header">
+              <div class="user-dropdown__name">User Name</div>
+              <div class="user-dropdown__email">user@email.com</div>
+            </div>
+            <a href="dashboard.html" class="user-dropdown__item"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            <a href="wallet.html"    class="user-dropdown__item"><i class="fa-solid fa-wallet"></i> My Wallet</a>
+            <a href="dashboard.html#bookings" class="user-dropdown__item"><i class="fa-solid fa-ticket"></i> My Bookings</a>
+            <div class="divider" style="margin:6px 0;"></div>
+            <div class="user-dropdown__item danger" data-action="logout">
+              <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </div>
+          </div>
+        </div>
+        <div class="navbar__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- ══ HERO ══ -->
+    <section class="about-hero">
+      <div class="container">
+        <div class="about-hero__eyebrow hero-animate-1">
+          <i class="fa-solid fa-circle-info"></i> About IJDrives
+        </div>
+        <h1 class="about-hero__title hero-animate-2">
+          Nigeria's Transport,<br><span>All in One Place</span>
+        </h1>
+        <p class="about-hero__subtitle hero-animate-3">
+          IJDrives is a full-stack portfolio project — a multi-modal transport
+          marketplace, covering land, sea, air and rail travel across Nigeria,
+          built with vanilla HTML, CSS and JavaScript.
+        </p>
+        <div class="about-hero__badges hero-animate-4">
+          <span class="about-badge green"><i class="fa-solid fa-circle-check"></i> Portfolio Project</span>
+          <span class="about-badge blue"><i class="fa-solid fa-code"></i> Vanilla JS</span>
+          <span class="about-badge yellow"><i class="fa-solid fa-map-location-dot"></i> Nigeria Focused</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="about-divider"></div>
+
+    <!-- ══ WHAT IS IJDRIVES ══ -->
+    <section class="about-section">
+      <div class="container">
+        <div class="about-two-col">
+          <div class="reveal-left">
+            <div class="about-section__eyebrow">The Project</div>
+            <h2 class="about-section__title">What is IJDrives?</h2>
+            <div class="about-section__body">
+              <p>
+                IJDrives is a Nigerian multi-modal transport marketplace — a single platform
+                where travellers can search, compare and book buses, ferries, domestic flights
+                and NRC trains across the country.
+              </p>
+              <p>
+                It's built as a portfolio project to showcase real-world frontend engineering:
+                IndexedDB auth, a fake wallet with transaction history, a 4-step booking flow,
+                live Leaflet maps with Stadia tile layers, and a fully responsive design system.
+              </p>
+              <p>
+                No real payments or bookings are made. All routes, fares and providers are
+                fictional data created for the project. The ₦500 welcome bonus and wallet top-ups
+                exist only in your browser's storage.
+              </p>
+            </div>
+          </div>
+          <div class="reveal-right">
+            <!-- Mode cards -->
+            <div class="modes-strip">
+              <a href="land.html" class="mode-strip-card" style="border-color:rgba(245,166,35,0.3);">
+                <div class="mode-strip-card__icon" style="background:rgba(245,166,35,0.12);color:var(--land-accent);">
+                  <i class="fa-solid fa-bus"></i>
+                </div>
+                <div class="mode-strip-card__label">Land</div>
+                <div class="mode-strip-card__count">25 routes</div>
+              </a>
+              <a href="sea.html" class="mode-strip-card" style="border-color:rgba(0,180,216,0.3);">
+                <div class="mode-strip-card__icon" style="background:rgba(0,180,216,0.12);color:var(--sea-accent);">
+                  <i class="fa-solid fa-ship"></i>
+                </div>
+                <div class="mode-strip-card__label">Sea</div>
+                <div class="mode-strip-card__count">14 routes</div>
+              </a>
+              <a href="air.html" class="mode-strip-card" style="border-color:rgba(123,47,190,0.3);">
+                <div class="mode-strip-card__icon" style="background:rgba(123,47,190,0.12);color:var(--air-accent);">
+                  <i class="fa-solid fa-plane-departure"></i>
+                </div>
+                <div class="mode-strip-card__label">Air</div>
+                <div class="mode-strip-card__count">18 routes</div>
+              </a>
+              <a href="rail.html" class="mode-strip-card" style="border-color:rgba(46,196,182,0.3);">
+                <div class="mode-strip-card__icon" style="background:rgba(46,196,182,0.12);color:var(--rail-accent);">
+                  <i class="fa-solid fa-train"></i>
+                </div>
+                <div class="mode-strip-card__label">Rail</div>
+                <div class="mode-strip-card__count">11 routes</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="about-divider"></div>
+
+    <!-- ══ FEATURES  -->
+    <section class="about-section">
+      <div class="container">
+        <div class="section-header reveal" style="margin-bottom:40px;">
+          <div class="eyebrow"><i class="fa-solid fa-star"></i> What's Built</div>
+          <h2>Everything You'd Expect from a Real App</h2>
+          <p>IJDrives implements the full user journey — from discovery to booking confirmation.</p>
+        </div>
+        <div class="features-grid">
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon" style="background:var(--danger-bg);color:var(--accent);">
+              <i class="fa-solid fa-user-plus"></i>
+            </div>
+            <div class="feature-card__title">Auth System</div>
+            <div class="feature-card__desc">
+              Full sign-up and login with SHA-256 password hashing via Web Crypto API.
+              Sessions stored in sessionStorage. ₦500 welcome bonus on sign-up.
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon" style="background:var(--success-bg);color:var(--success);">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <div class="feature-card__title">Fake Wallet</div>
+            <div class="feature-card__desc">
+              Deposit funds, make bookings, and track every transaction.
+              Full IndexedDB persistence — your balance survives browser refresh.
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon" style="background:var(--info-bg);color:var(--info);">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <div class="feature-card__title">Live Maps</div>
+            <div class="feature-card__desc">
+              Leaflet.js + Stadia Maps tiles. Route preview with A/B markers and
+              a dashed polyline. Dark and light map themes follow the app theme.
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon" style="background:var(--warning-bg);color:var(--warning);">
+              <i class="fa-solid fa-ticket"></i>
+            </div>
+            <div class="feature-card__title">4-Step Booking</div>
+            <div class="feature-card__desc">
+              Route summary → passenger details → seat/class selection → wallet payment.
+              Booking reference generated and saved to your history.
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon" style="background:rgba(123,47,190,0.12);color:var(--air-accent);">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="feature-card__title">Smart Search</div>
+            <div class="feature-card__desc">
+              Search across all 68 routes by origin, destination, price and class.
+              Cross-mode results page shows the cheapest options first.
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card__icon" style="background:var(--success-bg);color:var(--success);">
+              <i class="fa-solid fa-moon"></i>
+            </div>
+            <div class="feature-card__title">Dark / Light Mode</div>
+            <div class="feature-card__desc">
+              Full two-theme design system with CSS variables. Your preference
+              is saved to localStorage and applied instantly across all pages.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="about-divider"></div>
+
+    <!-- TECH STACK  -->
+    <section class="about-section">
+      <div class="container">
+        <div class="section-header reveal" style="margin-bottom:40px;">
+          <div class="eyebrow"><i class="fa-solid fa-code"></i> Tech Stack</div>
+          <h2>Built with the Fundamentals</h2>
+          <p>No frameworks, no bundlers — just clean vanilla web tech deployed as static files.</p>
+        </div>
+        <div class="tech-grid">
+
+          <div class="tech-card reveal">
+            <span class="tech-card__icon"><i class="fa-solid fa-globe"></i></span>
+            <div class="tech-card__name">HTML5</div>
+            <div class="tech-card__desc">Semantic markup, ARIA labels, accessible forms</div>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__icon"><i class="fa-solid fa-palette"></i></span>
+            <div class="tech-card__name">CSS3</div>
+            <div class="tech-card__desc">CSS variables, Grid, Flexbox, animations, dark mode</div>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__icon"><i class="fa-solid fa-bolt"></i></span>
+            <div class="tech-card__name">Vanilla JS</div>
+            <div class="tech-card__desc">ES6+, async/await, Web Crypto API, IndexedDB</div>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__icon"><i class="fa-solid fa-map"></i></span>
+            <div class="tech-card__name">Leaflet.js</div>
+            <div class="tech-card__desc">Interactive maps with Stadia Maps tile provider</div>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__icon"><i class="fa-solid fa-database"></i></span>
+            <div class="tech-card__name">IndexedDB</div>
+            <div class="tech-card__desc">Client-side database for users, bookings, transactions</div>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__icon"><i class="fa-solid fa-lock"></i></span>
+            <div class="tech-card__name">Web Crypto</div>
+            <div class="tech-card__desc">SHA-256 password hashing — no plain text stored</div>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__icon"><i class="fa-regular fa-image"></i></span>
+            <div class="tech-card__name">Unsplash CDN</div>
+            <div class="tech-card__desc">Free high-quality images, no API key needed</div>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__icon"><i class="fa-solid fa-paper-plane"></i></span>
+            <div class="tech-card__name">Vercel</div>
+            <div class="tech-card__desc">Static deployment, continuous deploy from GitHub</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="about-divider"></div>
+
+    <!-- DEVELOPER  -->
+    <section class="about-section">
+      <div class="container">
+        <div class="about-section__eyebrow reveal" style="text-align:center;display:block;margin-bottom:32px;">
+          The Developer
+        </div>
+        <div class="dev-card reveal">
+          <div class="dev-avatar"><img src="" alt=""></div>
+          <div class="dev-info">
+            <div class="dev-info__name">Ikedi</div>
+            <div class="dev-info__role">Full-Stack Web Developer, Data Analyst · Enugu City, Nigeria</div>
+            <p class="dev-info__bio">
+              Junior developer building real-world projects to grow and demonstrate my skills.
+              IJDrives is a portfolio piece covering the full spectrum of frontend development —
+              UI design, client-side logic, auth, maps, state management and deployment.
+              Stack: UI UX, HTML/CSS/JS, Python, Django, SQL, Data Analysis.
+            </p>
+            <div class="dev-links">
+              <a href="https://github.com/Ikedi-21" target="_blank" rel="noopener" class="dev-link">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="dev-link">
+                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+              </a>
+              <a href="mailto:ikedinachiogbonne@gmail.com" class="dev-link">
+                <i class="fa-solid fa-envelope"></i> Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="about-divider"></div>
+
+    <!--  CONTACT -->
+    <section class="about-section" id="contact">
+      <div class="container">
+        <div class="section-header reveal" style="margin-bottom:40px;">
+          <div class="eyebrow"><i class="fa-solid fa-paper-plane"></i> Get in Touch</div>
+          <h2>Contact</h2>
+          <p>Have feedback on the project, or want to connect? Send a message.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Contact info -->
+          <div class="reveal-left">
+            <div class="contact-info__item">
+              <div class="contact-info__icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="contact-info__label">Email</div>
+                <div class="contact-info__value">ikedinachiogbonne@gmail.com</div>
+              </div>
+            </div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon"><i class="fa-brands fa-github"></i></div>
+              <div>
+                <div class="contact-info__label">GitHub</div>
+                <div class="contact-info__value">https://github.com/Ikedi-21</div>
+              </div>
+            </div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="contact-info__label">Location</div>
+                <div class="contact-info__value">Enugu, Enugu State, Nigeria</div>
+              </div>
+            </div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon"><i class="fa-solid fa-circle-info"></i></div>
+              <div>
+                <div class="contact-info__label">Project Type</div>
+                <div class="contact-info__value">Portfolio project — Open to feedback</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div class="reveal-right">
+            <div class="contact-form">
+              <div class="contact-form__title">
+                <i class="fa-solid fa-paper-plane" style="color:var(--accent);margin-right:8px;"></i>
+                Send a Message
+              </div>
+              <div class="contact-form__fields" id="contact-fields">
+                <div class="form-group">
+                  <label class="form-label">Your Name</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="e.g. Emeka Okafor">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Message</label>
+                  <textarea id="contact-message" class="form-input" rows="4"
+                    placeholder="Your feedback, question or message..."
+                    style="resize:vertical; min-height:100px;"></textarea>
+                </div>
+                <button class="btn btn-primary btn-full" id="contact-send-btn">
+                  <i class="fa-solid fa-paper-plane"></i> Send Message
+                </button>
+              </div>
+              <!-- Success state (shown after send) -->
+              <div class="contact-form__success" id="contact-success">
+                <i class="fa-solid fa-circle-check"></i>
+                <h3 style="font-family:'Space Grotesk',sans-serif;margin-bottom:8px;">Message sent!</h3>
+                <p style="color:var(--text-muted);font-size:0.9rem;">
+                  Thanks for reaching out. This is a my demo project so nothing was actually sent,
+                  but the thought counts! 😄 I appriciate. 
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="about-divider"></div>
+
+    <!-- CTA -->
+    <section class="about-section">
+      <div class="container">
+        <div class="about-cta reveal">
+          <h2 class="about-cta__title">Ready to explore IJDrives?</h2>
+          <p class="about-cta__sub">Sign up free, get ₦500 in your wallet, and book your first trip.</p>
+          <div class="about-cta__actions">
+            <a href="signup.html" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-user-plus"></i> Create Free Account
+            </a>
+            <a href="index.html" class="btn btn-secondary btn-lg">
+              <i class="fa-solid fa-magnifying-glass"></i> Browse Routes
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">
+          <div class="footer__logo-icon"><i class="fa-solid fa-route"></i></div>
+          <span class="footer__logo-text">IJ<span>Drives</span></span>
+        </a>
+        <p class="footer__tagline">Nigeria's multi-modal transport marketplace. Land, sea, air, and rail — all in one place.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="footer__social-link" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Transport</div>
+        <ul class="footer__links">
+          <li><a href="land.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Land Travel</a></li>
+          <li><a href="sea.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sea Travel</a></li>
+          <li><a href="air.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Air Travel</a></li>
+          <li><a href="rail.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Rail Travel</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Account</div>
+        <ul class="footer__links">
+          <li><a href="signup.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sign Up</a></li>
+          <li><a href="login.html"     class="footer__link"><i class="fa-solid fa-chevron-right"></i> Log In</a></li>
+          <li><a href="dashboard.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Dashboard</a></li>
+          <li><a href="wallet.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> My Wallet</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="about.html"         class="footer__link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+          <li><a href="about.html#contact" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copyright">&copy; 2026 IJDrives. Built by Ikedi.</p>
+      <span class="footer__demo-badge"><i class="fa-solid fa-flask"></i> Kedi's Design</span>
+    </div>
+  </footer>
+
+  <!--  SCRIPTS  -->
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/wallet.js"></script>
+  <script src="js/booking.js"></script>
+
+  <script>
+    // Contact form — demo submit (no real sending)
+    document.addEventListener('DOMContentLoaded', function() {
+      var sendBtn     = document.getElementById('contact-send-btn');
+      var fieldsEl    = document.getElementById('contact-fields');
+      var successEl   = document.getElementById('contact-success');
+      var nameInput   = document.getElementById('contact-name');
+      var emailInput  = document.getElementById('contact-email');
+      var msgInput    = document.getElementById('contact-message');
+
+      if (sendBtn) {
+        sendBtn.addEventListener('click', function() {
+          var name  = nameInput  ? nameInput.value.trim()  : '';
+          var email = emailInput ? emailInput.value.trim() : '';
+          var msg   = msgInput   ? msgInput.value.trim()   : '';
+
+          if (!name) {
+            Utils.showToast('warning', 'Name required', 'Please enter your name.');
+            if (nameInput) nameInput.focus();
+            return;
+          }
+          if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            Utils.showToast('warning', 'Valid email required', 'Please enter a valid email address.');
+            if (emailInput) emailInput.focus();
+            return;
+          }
+          if (!msg) {
+            Utils.showToast('warning', 'Message required', 'Please write a message.');
+            if (msgInput) msgInput.focus();
+            return;
+          }
+
+          // Simulate sending
+          sendBtn.disabled  = true;
+          sendBtn.innerHTML = '<span class="spinner" style="width:18px;height:18px;border-width:2px;"></span> Sending...';
+
+          setTimeout(function() {
+            fieldsEl.style.display  = 'none';
+            successEl.style.display = 'block';
+          }, 1200);
+        });
+      }
+
+      // Scroll reveal
+      Utils.initScrollReveal();
+    });
+  </script>
+
+</body>
+</html>

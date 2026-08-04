@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Test — IJDrives</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: #0D0D1A; color: #fff; padding: 24px; }
+    h1 { margin-bottom: 16px; font-size: 1.2rem; }
+    #status { margin-bottom: 12px; padding: 10px 14px; border-radius: 8px;
+              background: #1A1A2E; font-size: 0.85rem; }
+    #status.ok  { border-left: 3px solid #2EC4B6; }
+    #status.err { border-left: 3px solid #E94560; }
+    /* The map container — explicit pixel height is REQUIRED */
+    #test-map { width: 100%; height: 400px; border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <h1>IJDrives — Leaflet Map Test</h1>
+  <div id="status">Initialising...</div>
+  <div id="test-map"></div>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+  <script>
+    var statusEl = document.getElementById('status');
+
+    function setStatus(msg, ok) {
+      statusEl.textContent = msg;
+      statusEl.className   = ok ? 'ok' : 'err';
+    }
+
+    try {
+      if (typeof L === 'undefined') {
+        setStatus('❌ Leaflet (L) is not defined — CDN script failed to load.', false);
+      } else {
+        setStatus('⏳ Leaflet loaded. Creating map...', true);
+
+        var map = L.map('test-map', {
+          center:          [9.082, 8.675], // Nigeria centre
+          zoom:            6,
+          scrollWheelZoom: false,
+        });
+
+        // Stadia Maps dark tile — no {r}, no detectRetina
+        L.tileLayer(
+          'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png',
+          {
+            minZoom:     2,
+            maxZoom:     18,
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; OpenStreetMap',
+          }
+        ).addTo(map);
+
+        // Test markers
+        L.marker([6.5244, 3.3792]).addTo(map).bindPopup('Lagos').openPopup();
+        L.marker([9.0579, 7.4951]).addTo(map).bindPopup('Abuja');
+
+        // Force size recalculation
+        setTimeout(function() {
+          map.invalidateSize();
+          setStatus('✅ Map initialised successfully. If you see tiles, Leaflet is working.', true);
+        }, 200);
+      }
+    } catch (e) {
+      setStatus('❌ Error: ' + e.message, false);
+      console.error(e);
+    }
+  </script>
+</body>
+</html>

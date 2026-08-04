@@ -1,0 +1,182 @@
+[
+  {
+    "id": "P001",
+    "name": "GUO Transport",
+    "type": "land",
+    "icon": "fa-bus",
+    "rating": 4.5,
+    "description": "Premium long-distance buses across Nigeria",
+    "founded": 1994
+  },
+  {
+    "id": "P002",
+    "name": "ABC Transport",
+    "type": "land",
+    "icon": "fa-bus",
+    "rating": 4.3,
+    "description": "Comfortable interstate buses with AC",
+    "founded": 1993
+  },
+  {
+    "id": "P003",
+    "name": "Young Shall Grow",
+    "type": "land",
+    "icon": "fa-bus",
+    "rating": 4.1,
+    "description": "Reliable road transport nationwide",
+    "founded": 1972
+  },
+  {
+    "id": "P004",
+    "name": "Cross Country",
+    "type": "land",
+    "icon": "fa-bus",
+    "rating": 4,
+    "description": "Budget-friendly interstate travel",
+    "founded": 2005
+  },
+  {
+    "id": "P005",
+    "name": "Chisco Transport",
+    "type": "land",
+    "icon": "fa-bus",
+    "rating": 4.4,
+    "description": "Premium coaches with onboard entertainment",
+    "founded": 1989
+  },
+  {
+    "id": "P006",
+    "name": "Peace Mass Transit",
+    "type": "land",
+    "icon": "fa-bus",
+    "rating": 3.9,
+    "description": "Affordable mass transit buses",
+    "founded": 2001
+  },
+  {
+    "id": "P007",
+    "name": "Ekene Dili Chukwu",
+    "type": "land",
+    "icon": "fa-bus",
+    "rating": 4.2,
+    "description": "Eastern Nigeria specialist transport",
+    "founded": 1978
+  },
+  {
+    "id": "P008",
+    "name": "Starzs Marine",
+    "type": "sea",
+    "icon": "fa-ship",
+    "rating": 4.4,
+    "description": "Premium speed boats on Lagos waterways",
+    "founded": 2008
+  },
+  {
+    "id": "P009",
+    "name": "Abuja Marine Services",
+    "type": "sea",
+    "icon": "fa-ship",
+    "rating": 4,
+    "description": "Ferry services across Nigerian rivers",
+    "founded": 2012
+  },
+  {
+    "id": "P010",
+    "name": "Lagos Ferry Services",
+    "type": "sea",
+    "icon": "fa-ferry",
+    "rating": 4.2,
+    "description": "Regular ferry routes on Lagos lagoon",
+    "founded": 2004
+  },
+  {
+    "id": "P011",
+    "name": "Delta Water Transport",
+    "type": "sea",
+    "icon": "fa-ship",
+    "rating": 3.8,
+    "description": "Niger Delta water transportation",
+    "founded": 2010
+  },
+  {
+    "id": "P012",
+    "name": "Calabar Coastal Lines",
+    "type": "sea",
+    "icon": "fa-anchor",
+    "rating": 4.1,
+    "description": "Coastal ferry services in Cross River",
+    "founded": 2007
+  },
+  {
+    "id": "P013",
+    "name": "Air Peace",
+    "type": "air",
+    "icon": "fa-plane",
+    "rating": 4.3,
+    "description": "Nigeria's largest domestic airline",
+    "founded": 2014
+  },
+  {
+    "id": "P014",
+    "name": "Ibom Air",
+    "type": "air",
+    "icon": "fa-plane-departure",
+    "rating": 4.6,
+    "description": "State-of-the-art Akwa Ibom airline",
+    "founded": 2019
+  },
+  {
+    "id": "P015",
+    "name": "United Nigeria Airlines",
+    "type": "air",
+    "icon": "fa-plane",
+    "rating": 4.2,
+    "description": "Connecting Nigeria's major cities",
+    "founded": 2021
+  },
+  {
+    "id": "P016",
+    "name": "Dana Air",
+    "type": "air",
+    "icon": "fa-plane",
+    "rating": 3.9,
+    "description": "Budget domestic airline",
+    "founded": 2008
+  },
+  {
+    "id": "P017",
+    "name": "Overland Airways",
+    "type": "air",
+    "icon": "fa-plane-arrival",
+    "rating": 4,
+    "description": "Regional domestic routes",
+    "founded": 2002
+  },
+  {
+    "id": "P018",
+    "name": "NRC Standard",
+    "type": "rail",
+    "icon": "fa-train",
+    "rating": 3.8,
+    "description": "Nigerian Railway Corporation standard class",
+    "founded": 1898
+  },
+  {
+    "id": "P019",
+    "name": "NRC First Class",
+    "type": "rail",
+    "icon": "fa-train-subway",
+    "rating": 4.5,
+    "description": "NRC premium first-class rail service",
+    "founded": 1898
+  },
+  {
+    "id": "P020",
+    "name": "NRC Business",
+    "type": "rail",
+    "icon": "fa-train",
+    "rating": 4.1,
+    "description": "NRC business class rail service",
+    "founded": 1898
+  }
+]

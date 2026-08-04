@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="IJDrives — Nigeria's multi-modal transport marketplace. Book land, sea, air and rail travel.">
+    <title>Home | IJDrives</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/Gemini_Generated_Image_gh6tetgh6tetgh6t-removebg-preview.png">
+    
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Google Fonts: Space Grotesk + Plus Jakarta Sans + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- IJDrives CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages/home.css" />
+  </head>
+
+  <body>
+
+    <!-- Toast notification container — must be outside navbar/main -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- NAVBAR  -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar__inner">
+
+        <a href="index.html" class="navbar__logo">
+          <div class="navbar__logo-icon"><i class="fa-solid fa-route"></i></div>
+          <span class="navbar__logo-text">IJ<span>Drives</span></span>
+        </a>ó
+
+        <ul class="navbar__links">
+          <li><a href="index.html" class="navbar__link active"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="land.html"  class="navbar__link" data-mode="land"><i cólass="fa-solid fa-bus"></i> Land</a></li>
+          <li><a href="sea.html"   class="navbar__link" data-mode="sea"><i class="fa-solid fa-ship"></i> Sea</a></li>
+          <li><a href="air.html"   class="navbar__link" data-mode="air"><i class="fa-solid fa-plane-departure"></i> Air</a></li>
+          <li><a href="rail.html"  class="navbar__link" data-mode="rail"><i class="fa-solid fa-train"></i> Rail</a></li>
+          <li><a href="about.html" class="navbar__link"><i class="fa-solid fa-circle-info"></i> About</a></li>
+        </ul>
+
+        <div class="navbar__actions">
+          <button class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+
+          <!-- Wallet chip — visible only when logged in (shown by auth.js) -->
+          <a href="wallet.html" class="wallet-chip" style="display:none;">
+            <i class="fa-solid fa-wallet"></i>
+            <span class="wallet-chip__balance">&#8358;0.00</span>
+          </a>
+
+          <!-- Auth buttons — visible when logged out -->
+          <div class="navbar__auth">
+            <a href="login.html"  class="btn btn-ghost btn-sm">Log In</a>
+            <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+          </div>
+
+          <!-- User avatar dropdown — visible when logged in -->
+          <div class="user-menu" style="display:none;">
+            <div class="user-avatar" role="button" tabindex="0" aria-label="User menu">U</div>
+            <div class="user-dropdown">
+              <div class="user-dropdown__header">
+                <div class="user-dropdown__name">User Name</div>
+                <div class="user-dropdown__email">user@email.com</div>
+              </div>
+              <a href="dashboard.html"      class="user-dropdown__item"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+              <a href="wallet.html"         class="user-dropdown__item"><i class="fa-solid fa-wallet"></i> My Wallet</a>
+              <a href="dashboard.html#bookings" class="user-dropdown__item"><i class="fa-solid fa-ticket"></i> My Bookings</a>
+              <div class="divider" style="margin:6px 0;"></div>
+              <div class="user-dropdown__item danger" data-action="logout">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar__hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <!--  MAIN 
+         page-content class applies padding-top: var(--nav-height)
+         so content starts below the fixed navbar.
+         The hero section handles its own extra top padding.
+     -->
+    <main class="page-content">
+
+      <!--  HERO  -->
+      <section class="hero" id="hero">
+        <div class="hero__bg"></div>
+        <div class="hero__overlay"></div>
+        <div class="hero__particles" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="container hero__container">
+
+          <!-- Left: copy + search + trust bar -->
+          <div class="hero__copy">
+
+            <div class="hero__eyebrow hero-animate-1">
+              <span class="hero__eyebrow-pulse"></span>
+              Nigeria's #1 Transport Marketplace
+            </div>
+
+            <h1 class="hero__title hero-animate-2">
+              Travel Smarter<br>Across <span class="hero__title-highlight">Nigeria</span>
+            </h1>
+
+            <p class="hero__subtitle hero-animate-3">
+              Search, compare and book land, sea, air and rail transport — all from one platform. Fast, simple, built for Nigerians.
+            </p>
+
+            <!-- ── Search Widget ── -->
+            <div class="search-widget hero-animate-4">
+
+              <div class="search-widget__tabs" role="tablist">
+                <button class="search-tab active" data-mode="land" role="tab" aria-selected="true">
+                  <i class="fa-solid fa-bus"></i> Land
+                </button>
+                <button class="search-tab" data-mode="sea" role="tab">
+                  <i class="fa-solid fa-ship"></i> Sea
+                </button>
+                <button class="search-tab" data-mode="air" role="tab">
+                  <i class="fa-solid fa-plane-departure"></i> Air
+                </button>
+                <button class="search-tab" data-mode="rail" role="tab">
+                  <i class="fa-solid fa-train"></i> Rail
+                </button>
+              </div>
+
+              <form class="search-widget__form" id="main-search" novalidate>
+
+                <div class="search-field">
+                  <label for="search-origin">
+                    <i class="fa-solid fa-circle-dot"></i> Origin
+                  </label>
+                  <input
+                    type="text"
+                    id="search-origin"
+                    placeholder="Departure city..."
+                    autocomplete="off"
+                    list="cities-list"
+                  >
+                </div>
+
+                <button type="button" class="swap-btn" id="swap-cities"
+                  title="Swap cities" aria-label="Swap origin and destination">
+                  <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                </button>
+
+                <div class="search-field">
+                  <label for="search-destination">
+                    <i class="fa-solid fa-location-dot"></i> Destination
+                  </label>
+                  <input
+                    type="text"
+                    id="search-destination"
+                    placeholder="Where to?"
+                    autocomplete="off"
+                    list="cities-list"
+                  >
+                </div>
+
+                <div class="search-field">
+                  <label for="search-date">
+                    <i class="fa-solid fa-calendar-days"></i> Travel Date
+                  </label>
+                  <input type="date" id="search-date">
+                </div>
+
+                <button type="submit" class="search-submit">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <span>Find Routes</span>
+                </button>
+
+              </form>
+
+              <!-- Nigerian cities autocomplete -->
+              <datalist id="cities-list">
+                <option value="Lagos">
+                <option value="Abuja">
+                <option value="Port Harcourt">
+                <option value="Kano">
+                <option value="Ibadan">
+                <option value="Enugu">
+                <option value="Warri">
+                <option value="Calabar">
+                <option value="Benin City">
+                <option value="Kaduna">
+                <option value="Owerri">
+                <option value="Uyo">
+                <option value="Ilorin">
+                <option value="Asaba">
+              </datalist>
+
+            </div>
+            <!-- /search-widget -->
+
+            <!--  Trust bar ─ -->
+            <div class="hero__trust-bar hero-animate-5">
+              <span class="hero__trust-label">Covering Nigeria's transport network:</span>
+              <div class="hero__trust-icons">
+                <div class="trust-icon" title="Nigerian Railway Corporation">
+                  <i class="fa-solid fa-train"></i><span>NRC Rail</span>
+                </div>
+                <div class="trust-icon" title="Road Transport">
+                  <i class="fa-solid fa-bus"></i><span>Road</span>
+                </div>
+                <div class="trust-icon" title="Aviation">
+                  <i class="fa-solid fa-plane"></i><span>Aviation</span>
+                </div>
+                <div class="trust-icon" title="Water Transport">
+                  <i class="fa-solid fa-ship"></i><span>Maritime</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- /hero__copy -->
+
+          <!-- Right: floating stats panel (hidden below 1100px) -->
+          <div class="hero__stats-panel hero-animate-3">
+            <div class="hero__stat-card">
+              <div class="hero__stat-icon"><i class="fa-solid fa-building"></i></div>
+              <div class="hero__stat-num" data-target="50">0</div>
+              <div class="hero__stat-label">Transport Providers</div>
+            </div>
+            <div class="hero__stat-card">
+              <div class="hero__stat-icon" style="background:var(--info-bg); color:var(--info);">
+                <i class="fa-solid fa-route"></i>
+              </div>
+              <div class="hero__stat-num" data-target="200">0</div>
+              <div class="hero__stat-label">Routes Nationwide</div>
+            </div>
+            <div class="hero__stat-card">
+              <div class="hero__stat-icon" style="background:var(--success-bg); color:var(--success);">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="hero__stat-num">100%</div>
+              <div class="hero__stat-label">Secure Bookings</div>
+            </div>
+            <div class="hero__stat-card">
+              <div class="hero__stat-icon" style="background:var(--warning-bg); color:var(--warning);">
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div class="hero__stat-num">4.8 <span style="font-size:1rem;">&#9733;</span></div>
+              <div class="hero__stat-label">Average Rating</div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /hero__container -->
+
+      </section>
+
+      <!-- ══ MODE CARDS ══ -->
+      <section class="section-padding modes-section" id="modes">
+        <div class="container">
+
+          <div class="section-header reveal">
+            <div class="eyebrow"><i class="fa-solid fa-compass"></i> How Do You Want to Travel?</div>
+            <h2>Choose Your Transport Mode</h2>
+            <p>From highways to airways — IJDrives covers every route across Nigeria.</p>
+          </div>
+
+          <div class="modes-grid stagger-children">
+
+            <a href="land.html" class="mode-card reveal" data-mode="land">
+              <div class="mode-card__img">
+                <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600&q=80" alt="Land transport — buses on a Nigerian highway"
+                  >
+                <div class="mode-card__img-fallback"><i class="fa-solid fa-bus"></i></div>
+                <div class="mode-card__img-overlay"></div>
+                <div class="mode-card__badge"><i class="fa-solid fa-bus"></i></div>
+              </div>
+              <div class="mode-card__body">
+                <div class="mode-card__meta">
+                  <span class="mode-card__tag">Land</span>
+                  <span class="mode-card__route-count" id="land-route-count">Loading...</span>
+                </div>
+                <h3 class="mode-card__title">Land Travel</h3>
+                <p class="mode-card__desc">Buses, taxis &amp; intercity cars</p>
+                <div class="mode-card__cta">Book Now <i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </a>
+
+            <a href="sea.html" class="mode-card reveal" data-mode="sea">
+              <div class="mode-card__img">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Sea transport — ferry on Nigerian waterways"
+                  >
+                <div class="mode-card__img-fallback"><i class="fa-solid fa-ship"></i></div>
+                <div class="mode-card__img-overlay"></div>
+                <div class="mode-card__badge"><i class="fa-solid fa-ship"></i></div>
+              </div>
+              <div class="mode-card__body">
+                <div class="mode-card__meta">
+                  <span class="mode-card__tag">Sea</span>
+                  <span class="mode-card__route-count" id="sea-route-count">Loading...</span>
+                </div>
+                <h3 class="mode-card__title">Sea Travel</h3>
+                <p class="mode-card__desc">Ferries &amp; coastal transit</p>
+                <div class="mode-card__cta">Book Now <i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </a>
+
+            <a href="air.html" class="mode-card reveal" data-mode="air">
+              <div class="mode-card__img">
+                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" alt="Air transport — domestic flight over Nigeria"
+                  >
+                <div class="mode-card__img-fallback"><i class="fa-solid fa-plane-departure"></i></div>
+                <div class="mode-card__img-overlay"></div>
+                <div class="mode-card__badge"><i class="fa-solid fa-plane-departure"></i></div>
+              </div>
+              <div class="mode-card__body">
+                <div class="mode-card__meta">
+                  <span class="mode-card__tag">Air</span>
+                  <span class="mode-card__route-count" id="air-route-count">Loading...</span>
+                </div>
+                <h3 class="mode-card__title">Air Travel</h3>
+                <p class="mode-card__desc">Domestic flights nationwide</p>
+                <div class="mode-card__cta">Book Now <i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </a>
+
+            <a href="rail.html" class="mode-card reveal" data-mode="rail">
+              <div class="mode-card__img">
+                <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&q=80" alt="Rail transport — NRC train on Nigerian tracks">
+                  <!-- loading="lazy" onerror="this.style.display='none'" -->
+                <div class="mode-card__img-fallback"><i class="fa-solid fa-train"></i></div>
+                <div class="mode-card__img-overlay"></div>
+                <div class="mode-card__badge"><i class="fa-solid fa-train"></i></div>
+              </div>
+              <div class="mode-card__body">
+                <div class="mode-card__meta">
+                  <span class="mode-card__tag">Rail</span>
+                  <span class="mode-card__route-count" id="rail-route-count">Loading...</span>
+                </div>
+                <h3 class="mode-card__title">Rail Travel</h3>
+                <p class="mode-card__desc">NRC trains across Nigeria</p>
+                <div class="mode-card__cta">Book Now <i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ FEATURED ROUTES ══ -->
+      <section class="section-padding featured-section">
+        <div class="container">
+
+          <div class="section-header reveal">
+            <div class="eyebrow"><i class="fa-solid fa-fire"></i> Popular Picks</div>
+            <h2>Featured Routes</h2>
+            <p>The most-booked routes across Nigeria this week.</p>
+          </div>
+
+          <!--
+            Skeleton divs are shown while home.js fetches JSON.
+            home.js replaces them with real .featured-route-card elements.
+          -->
+          <div id="featured-routes-container" class="featured-grid">
+            <div class="route-skeleton skeleton"></div>
+            <div class="route-skeleton skeleton"></div>
+            <div class="route-skeleton skeleton"></div>
+            <div class="route-skeleton skeleton"></div>
+            <div class="route-skeleton skeleton"></div>
+            <div class="route-skeleton skeleton"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══ HOW IT WORKS ══ -->
+      <section class="section-padding how-section">
+        <div class="container">
+
+          <div class="section-header reveal">
+            <div class="eyebrow"><i class="fa-solid fa-map-signs"></i> Simple Process</div>
+            <h2>How IJDrives Works</h2>
+            <p>Three steps from search to seat — no stress, no confusion.</p>
+          </div>
+
+          <div class="how-grid stagger-children">
+
+            <div class="how-card reveal">
+              <div class="how-card__number">01</div>
+              <div class="how-card__icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+              <h3>Search Routes</h3>
+              <p>Enter your origin, destination and travel date. We show every available option across all four transport modes.</p>
+              <div class="how-card__connector"></div>
+            </div>
+
+            <div class="how-card reveal">
+              <div class="how-card__number">02</div>
+              <div class="how-card__icon" style="color:var(--success);"><i class="fa-solid fa-ticket"></i></div>
+              <h3>Select &amp; Book</h3>
+              <p>Compare providers, pick your seat or class, and pay instantly from your IJDrives wallet.</p>
+              <div class="how-card__connector"></div>
+            </div>
+
+            <div class="how-card reveal">
+              <div class="how-card__number">03</div>
+              <div class="how-card__icon" style="color:var(--warning);"><i class="fa-solid fa-plane-arrival"></i></div>
+              <h3>Travel Confidently</h3>
+              <p>Get your booking reference instantly. Your full receipt and trip history live on your dashboard — always.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ WHY IJDRIVES ══ -->
+      <section class="section-padding why-section">
+        <div class="container">
+          <div class="why-grid">
+
+            <div class="why-copy reveal-left">
+              <div class="eyebrow"><i class="fa-solid fa-award"></i> Why Choose Us</div>
+              <h2>Everything you need<br>to travel Nigeria</h2>
+              <p>IJDrives brings together land, sea, air and rail transport in a single marketplace — with a built-in wallet, booking history, and live route maps.</p>
+              <a href="signup.html" class="btn btn-primary" style="margin-top:28px;">
+                <i class="fa-solid fa-user-plus"></i> Get Started Free
+              </a>
+            </div>
+
+            <div class="why-features stagger-children reveal-right">
+              <div class="why-feature">
+                <div class="why-feature__icon"><i class="fa-solid fa-wallet"></i></div>
+                <div>
+                  <h4>Built-in Wallet</h4>
+                  <p>Deposit once. Spend across all four transport modes.</p>
+                </div>
+              </div>
+              <div class="why-feature">
+                <div class="why-feature__icon" style="background:var(--info-bg); color:var(--info);">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div>
+                  <h4>Live Route Maps</h4>
+                  <p>See your origin and destination on Google Maps before booking.</p>
+                </div>
+              </div>
+              <div class="why-feature">
+                <div class="why-feature__icon" style="background:var(--success-bg); color:var(--success);">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                  <h4>Secure Accounts</h4>
+                  <p>Password-protected with encrypted local storage.</p>
+                </div>
+              </div>
+              <div class="why-feature">
+                <div class="why-feature__icon" style="background:var(--warning-bg); color:var(--warning);">
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                <div>
+                  <h4>Full Booking History</h4>
+                  <p>Every trip you've booked, always on your dashboard.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ CTA BANNER ══ -->
+      <section class="cta-section section-padding">
+        <div class="container">
+          <div class="cta-banner reveal">
+            <div class="cta-banner__glow"></div>
+            <div class="cta-banner__content">
+
+              <div class="cta-banner__icon animate-float">
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+
+              <div class="cta-banner__copy">
+                <h2>Sign Up &amp; Get <span class="cta-bonus">&#8358;500</span> Free</h2>
+                <p>Create your free IJDrives account today and get a &#8358;500 welcome bonus — credited instantly to your wallet.</p>
+              </div>
+
+              <div class="cta-banner__action">
+                <a href="signup.html" class="btn btn-primary btn-lg">
+                  <i class="fa-solid fa-user-plus"></i> Create Free Account
+                </a>
+                <span class="cta-note">
+                  <i class="fa-solid fa-lock"></i> No real money required
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <!-- /page-content -->
+
+    <!-- ══════════════════ FOOTER ══════════════════ -->
+    <footer class="footer">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <div class="footer__logo-icon"><i class="fa-solid fa-route"></i></div>
+            <span class="footer__logo-text">IJ<span>Drives</span></span>
+          </a>
+          <p class="footer__tagline">Nigeria's multi-modal transport marketplace. Land, sea, air, and rail — all in one place.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="footer__social-link" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Transport</div>
+          <ul class="footer__links">
+            <li><a href="land.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Land Travel</a></li>
+            <li><a href="sea.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sea Travel</a></li>
+            <li><a href="air.html"  class="footer__link"><i class="fa-solid fa-chevron-right"></i> Air Travel</a></li>
+            <li><a href="rail.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Rail Travel</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Account</div>
+          <ul class="footer__links">
+            <li><a href="signup.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> Sign Up</a></li>
+            <li><a href="login.html"     class="footer__link"><i class="fa-solid fa-chevron-right"></i> Log In</a></li>
+            <li><a href="dashboard.html" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Dashboard</a></li>
+            <li><a href="wallet.html"    class="footer__link"><i class="fa-solid fa-chevron-right"></i> My Wallet</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Company</div>
+          <ul class="footer__links">
+            <li><a href="about.html"         class="footer__link"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+            <li><a href="about.html#contact" class="footer__link"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 IJDrives. Built by Ikedi.</p>
+        <span class="footer__demo-badge"><i class="fa-solid fa-flask"></i> Kedi's Design</span>
+      </div>
+    </footer>
+
+    <!-- ══════════════════ SCRIPTS ══════════════════
+         Load order matters — each file depends on the one above it:
+         config → db → utils → theme → auth → data → wallet → search → booking → maps → home
+    ════════════════════════════════════════════════ -->
+    <script src="js/config.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/wallet.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/home.js"></script>
+
+  </body>
+</html>
