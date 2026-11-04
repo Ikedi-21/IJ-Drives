@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ijdrives_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - DEBUG=false
+      - DATABASE_URL=postgresql+asyncpg://ijdrives_user:ijdrives_secure_password@postgres:5432/ijdrives_db
+      - SECRET_KEY=ijdrives-production-secret-key-32-chars-long-hex
+      - ALLOWED_ORIGINS=["*"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: ijdrives_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ijdrives_user
+      POSTGRES_PASSWORD: ijdrives_secure_password
+      POSTGRES_DB: ijdrives_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ijdrives_user -d ijdrives_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
