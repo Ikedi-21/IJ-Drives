@@ -23,7 +23,6 @@ const Auth = (() => {
    * @returns {Object} the created user record
    */
   async function signup({ fullName, email, password }) {
-    // Basic presence validation (detailed validation is in signup.js)
     if (!fullName || !email || !password) {
       throw new Error('All fields are required.');
     }
@@ -31,49 +30,27 @@ const Auth = (() => {
       throw new Error('Password must be at least 6 characters.');
     }
 
-    // Duplicate email check
-    const exists = await DB.emailExists(email.toLowerCase().trim());
-    if (exists) {
-      throw new Error('An account with this email already exists.');
+    try {
+      const user = await API.auth.signup({ fullName, email, password });
+      Utils.setSession(user.id);
+      return {
+        id: user.id,
+        fullName: user.full_name,
+        email: user.email,
+        walletBalance: user.wallet_balance,
+        role: user.role,
+        createdAt: user.created_at,
+      };
+    } catch (err) {
+      throw new Error(err.message || 'Signup failed.');
     }
-
-    // Hash password — never store plain text
-    const passwordHash = await Utils.hashPassword(password);
-
-    const now = new Date().toISOString();
-
-    const user = {
-      id:            Utils.generateUUID(),
-      fullName:      fullName.trim(),
-      email:         email.toLowerCase().trim(),
-      passwordHash,
-      walletBalance: IJDRIVES_CONFIG.WELCOME_BONUS,
-      bookings:      [],
-      transactions:  [
-        {
-          id:          Utils.generateUUID(),
-          type:        'credit',
-          amount:      IJDRIVES_CONFIG.WELCOME_BONUS,
-          description: 'Welcome Bonus',
-          date:        now,
-          balance:     IJDRIVES_CONFIG.WELCOME_BONUS,
-        },
-      ],
-      createdAt: now,
-    };
-
-    await DB.createUser(user);
-    Utils.setSession(user.id);
-    return user;
   }
 
   // 
   // LOGIN
   // 
   /**
-   * Verifies email + password against the IndexedDB record.
-   * Both wrong-email and wrong-password throw the same message
-   * (security best practice — don't leak whether an email exists).
+   * Verifies email + password via the FastAPI backend.
    *
    * @throws {Error} with user-readable message
    * @returns {Object} the matched user record
@@ -83,23 +60,26 @@ const Auth = (() => {
       throw new Error('Email and password are required.');
     }
 
-    const user = await DB.getUserByEmail(email.toLowerCase().trim());
-    if (!user) {
-      throw new Error('Incorrect email or password.');
+    try {
+      const user = await API.auth.login({ email, password });
+      Utils.setSession(user.id);
+      return {
+        id: user.id,
+        fullName: user.full_name,
+        email: user.email,
+        walletBalance: user.wallet_balance,
+        role: user.role,
+        createdAt: user.created_at,
+      };
+    } catch (err) {
+      throw new Error(err.message || 'Incorrect email or password.');
     }
-
-    const passwordHash = await Utils.hashPassword(password);
-    if (passwordHash !== user.passwordHash) {
-      throw new Error('Incorrect email or password.');
-    }
-
-    Utils.setSession(user.id);
-    return user;
   }
 
   // LOGOUT
 
   function logout() {
+    API.auth.logout();
     Utils.clearSession();
     window.location.href = 'index.html';
   }
@@ -112,15 +92,25 @@ const Auth = (() => {
    * or null if not logged in / session is stale.
    */
   async function getCurrentUser() {
-    const id = Utils.getSession();
-    if (!id) return null;
-    const user = await DB.getUserById(id);
-    // If the IndexedDB record is gone (e.g. cleared), wipe the stale session
-    if (!user) {
+    if (!Utils.isLoggedIn()) return null;
+    try {
+      const user = await API.auth.getCurrentUser();
+      if (!user) {
+        Utils.clearSession();
+        return null;
+      }
+      return {
+        id: user.id,
+        fullName: user.full_name,
+        email: user.email,
+        walletBalance: user.wallet_balance,
+        role: user.role,
+        createdAt: user.created_at,
+      };
+    } catch (_) {
       Utils.clearSession();
       return null;
     }
-    return user;
   }
 
   

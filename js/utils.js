@@ -68,11 +68,13 @@ const Utils = (() => {
   }
 
   function getSession() {
-    return sessionStorage.getItem('ij_session');
+    return localStorage.getItem('ij_access_token') || sessionStorage.getItem('ij_session');
   }
 
   function clearSession() {
     sessionStorage.removeItem('ij_session');
+    localStorage.removeItem('ij_access_token');
+    localStorage.removeItem('ij_current_user');
   }
 
   function isLoggedIn() {

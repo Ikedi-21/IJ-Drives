@@ -33,100 +33,66 @@ var Wallet = (function() {
       throw new Error('Maximum deposit is ' + Utils.formatCurrency(IJDRIVES_CONFIG.MAX_DEPOSIT) + '.');
     }
 
-    var user = await Auth.getCurrentUser();
-    if (!user) throw new Error('You must be logged in to deposit funds.');
+    if (!Utils.isLoggedIn()) throw new Error('You must be logged in to deposit funds.');
 
-    var newBalance = (user.walletBalance || 0) + amount;
-
-    var tx = {
-      id:          Utils.generateUUID(),
-      type:        'credit',
-      amount:      amount,
-      description: 'Wallet Top-up',
-      date:        new Date().toISOString(),
-      balance:     newBalance,
-    };
-
-    user.walletBalance = newBalance;
-    user.transactions  = [tx].concat(user.transactions || []);
-
-    await DB.updateUser(user);
+    var newBalance = await API.wallet.deposit(amount);
     updateNavbarChip(newBalance);
-
     return newBalance;
   }
 
   /**
-   * Debit the user's wallet by the given amount.
-   * Throws if balance is insufficient.
+   * Debit helper (Note: Bookings are debited atomically on the backend).
    * @param {number} amount
-   * @param {string} description  e.g. "Lagos → Abuja · GUO Transport"
-   * @returns {number} new balance
+   * @param {string} description
+   * @returns {number}
    */
   async function debit(amount, description) {
-    amount = Number(amount);
-    if (isNaN(amount) || amount <= 0) {
-      throw new Error('Invalid payment amount.');
-    }
-
-    var user = await Auth.getCurrentUser();
-    if (!user) throw new Error('You must be logged in to make a payment.');
-
-    var currentBalance = user.walletBalance || 0;
-    if (currentBalance < amount) {
+    var balance = await getBalance();
+    if (balance < amount) {
       throw new Error(
         'Insufficient wallet balance. You have ' +
-        Utils.formatCurrency(currentBalance) +
+        Utils.formatCurrency(balance) +
         ' but need ' +
         Utils.formatCurrency(amount) + '.'
       );
     }
-
-    var newBalance = currentBalance - amount;
-
-    var tx = {
-      id:          Utils.generateUUID(),
-      type:        'debit',
-      amount:      amount,
-      description: description || 'Booking Payment',
-      date:        new Date().toISOString(),
-      balance:     newBalance,
-    };
-
-    user.walletBalance = newBalance;
-    user.transactions  = [tx].concat(user.transactions || []);
-
-    await DB.updateUser(user);
-    updateNavbarChip(newBalance);
-
-    return newBalance;
+    return balance - amount;
   }
 
   /**
    * Returns the current user's wallet balance, or 0 if not logged in.
    */
   async function getBalance() {
-    var user = await Auth.getCurrentUser();
-    return user ? (user.walletBalance || 0) : 0;
+    return API.wallet.getBalance();
   }
 
   /**
    * Returns the current user's full transaction history array.
    */
   async function getTransactions() {
-    var user = await Auth.getCurrentUser();
-    return user ? (user.transactions || []) : [];
+    return API.wallet.getTransactions();
   }
 
   /**
-   * Adds a completed booking to the user's bookings array in IndexedDB.
-   * Called by booking-page.js after a successful payment.
+   * Persists booking atomically via FastAPI backend.
    */
   async function saveBooking(bookingRecord) {
-    var user = await Auth.getCurrentUser();
-    if (!user) return;
-    user.bookings = [bookingRecord].concat(user.bookings || []);
-    await DB.updateUser(user);
+    if (typeof API !== 'undefined' && API.auth.isLoggedIn()) {
+      var route = bookingRecord.route || {};
+      var passenger = bookingRecord.passenger || {};
+      var result = await API.bookings.createBooking({
+        routeId: route.id,
+        passenger: passenger,
+        seat: bookingRecord.seat,
+        classChoice: bookingRecord.class,
+        travelDate: bookingRecord.date,
+      });
+      if (result && result.ref) {
+        bookingRecord.ref = result.ref;
+      }
+      return result;
+    }
+    return bookingRecord;
   }
 
   /**

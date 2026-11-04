@@ -16,14 +16,19 @@ const Data = (() => {
   }
 
   const load = {
-    land:      () => fetchJSON('data/land.json'),
-    sea:       () => fetchJSON('data/sea.json'),
-    air:       () => fetchJSON('data/air.json'),
-    rail:      () => fetchJSON('data/rail.json'),
-    providers: () => fetchJSON('data/providers.json'),
+    land:      () => (typeof API !== 'undefined' ? API.transport.getRoutes({ mode: 'land' }).catch(() => fetchJSON('data/land.json')) : fetchJSON('data/land.json')),
+    sea:       () => (typeof API !== 'undefined' ? API.transport.getRoutes({ mode: 'sea' }).catch(() => fetchJSON('data/sea.json')) : fetchJSON('data/sea.json')),
+    air:       () => (typeof API !== 'undefined' ? API.transport.getRoutes({ mode: 'air' }).catch(() => fetchJSON('data/air.json')) : fetchJSON('data/air.json')),
+    rail:      () => (typeof API !== 'undefined' ? API.transport.getRoutes({ mode: 'rail' }).catch(() => fetchJSON('data/rail.json')) : fetchJSON('data/rail.json')),
+    providers: () => (typeof API !== 'undefined' ? API.transport.getProviders().catch(() => fetchJSON('data/providers.json')) : fetchJSON('data/providers.json')),
   };
 
   async function getProviderById(id) {
+    if (typeof API !== 'undefined') {
+      try {
+        return await API.transport.getProvider(id);
+      } catch (_) {}
+    }
     const providers = await load.providers();
     return providers.find(p => p.id === id) || null;
   }

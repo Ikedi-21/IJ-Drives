@@ -37,9 +37,10 @@ const IJDRIVES_CONFIG = {
     '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
 
   // ── App Info ──
-  APP_NAME:    'IJDrives',
-  APP_VERSION: '1.0.0',
-  IS_DEMO:     true,
+  APP_NAME:     'IJDrives',
+  APP_VERSION:  '1.0.0',
+  IS_DEMO:      true,
+  API_BASE_URL: 'http://127.0.0.1:8000/api/v1',
 
   // ── IndexedDB ──
   DB_NAME:    'ijdrives_db',

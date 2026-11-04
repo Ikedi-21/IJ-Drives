@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="IJDrives — Nigeria's multi-modal transport marketplace">
+  <meta name="description" content="IJDrives â€” Nigeria's multi-modal transport marketplace">
   <title>My Wallet | IJDrives</title>
 
   <!-- Favicon -->
@@ -86,7 +86,7 @@
         <!-- Wallet chip (logged in only) -->
         <a href="wallet.html" class="wallet-chip" style="display:none;">
           <i class="fa-solid fa-wallet"></i>
-          <span class="wallet-chip__balance">₦0.00</span>
+          <span class="wallet-chip__balance">â‚¦0.00</span>
         </a>
 
         <!-- Auth buttons (logged out) -->
@@ -164,7 +164,7 @@
             <i class="wallet-hero__icon fa-solid fa-wallet"></i>
             <div class="wallet-hero__label">Available Balance</div>
             <div class="wallet-hero__balance">
-              <span class="currency">₦</span><span id="wallet-balance">0.00</span>
+              <span class="currency">â‚¦</span><span id="wallet-balance">0.00</span>
             </div>
             <button class="btn btn-success btn-lg" id="deposit-btn">
               <i class="fa-solid fa-arrow-down"></i> Deposit Funds
@@ -198,21 +198,21 @@
           <button class="modal__close" id="close-deposit-modal"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="form-group" style="margin-bottom:20px;">
-          <label class="form-label">Amount (₦)</label>
+          <label class="form-label">Amount (â‚¦)</label>
           <input type="number" id="deposit-amount" class="form-input" placeholder="e.g. 5000" min="500" max="500000">
-          <span style="font-size:0.78rem; color:var(--text-muted); margin-top:4px;">Min: ₦500 · Max: ₦500,000</span>
+          <span style="font-size:0.78rem; color:var(--text-muted); margin-top:4px;">Min: â‚¦500 Â· Max: â‚¦500,000</span>
         </div>
         <!-- Quick amount shortcuts -->
         <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
-          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="500">₦500</button>
-          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="1000">₦1,000</button>
-          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="2000">₦2,000</button>
-          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="5000">₦5,000</button>
-          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="10000">₦10,000</button>
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="500">â‚¦500</button>
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="1000">â‚¦1,000</button>
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="2000">â‚¦2,000</button>
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="5000">â‚¦5,000</button>
+          <button class="btn btn-secondary btn-sm deposit-quick-btn" data-amount="10000">â‚¦10,000</button>
         </div>
                 <div style="background:var(--info-bg); border:1px solid var(--info); border-radius:var(--radius-md); padding:12px 14px; margin-bottom:20px; font-size:0.85rem; color:var(--info); display:flex; gap:8px; align-items:center;">
           <i class="fa-solid fa-circle-info"></i>
-          This is a demo — no real money is involved. Funds are added to your IJDrives wallet instantly.
+          This is a demo â€” no real money is involved. Funds are added to your IJDrives wallet instantly.
         </div>
         <button class="btn btn-success btn-full btn-lg" id="confirm-deposit-btn">
           <i class="fa-solid fa-check"></i> Confirm Deposit
@@ -234,7 +234,7 @@
           <span class="footer__logo-text">IJ<span>Drives</span></span>
         </a>
         <p class="footer__tagline">
-          Nigeria's multi-modal transport marketplace. Land, sea, air, and rail — all in one place.
+          Nigeria's multi-modal transport marketplace. Land, sea, air, and rail â€” all in one place.
         </p>
         <div class="footer__socials">
           <a href="#" class="footer__social-link" aria-label="Twitter">
@@ -296,6 +296,7 @@
 
 <!-- IJDrives JS -->
   <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
   <script src="js/db.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/theme.js"></script>
