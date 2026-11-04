@@ -27,3 +27,5 @@ real-time transport discovery and booking. Built as a GroTec product.
 Hosted on Vercel. Push to GitHub and connect to Vercel.
 
 > This is a demo project — no real payments or bookings are processed.
+
+we are planning the use of fastAPI for the backend to remove all the local storage used and IndexDB
