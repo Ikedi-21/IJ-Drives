@@ -1,0 +1,223 @@
+IJDRIVES PROPRIETARY SOFTWARE LICENSE
+======================================
+
+Copyright (c) 2026 GroTec. All Rights Reserved.
+Project: IJDrives — Nigeria's Multi-Modal Transport Marketplace
+Author:  Ikedi (GroTec)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PREAMBLE
+--------
+
+This License Agreement ("Agreement") governs the use, reproduction, distribution,
+and modification of the IJDrives software platform ("Software"), including all
+associated source code, documentation, assets, design files, and intellectual
+property contained within this repository.
+
+This Software was developed by Ikedi under the GroTec brand as a final academic
+project submission for Aptech Computer Education (Semester 1, 2026). It
+represents original creative and technical work, and all rights not expressly
+granted herein are reserved by the copyright holder.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 1 — DEFINITIONS
+------------------------
+
+1.1  "Software" means the IJDrives platform in its entirety, including but not
+     limited to: all source code (Python, JavaScript, HTML, CSS), database
+     schemas, API specifications, configuration files, documentation, seed data,
+     test suites, Dockerfiles, and any associated media or design assets.
+
+1.2  "Licensor" means GroTec and its designated representative, Ikedi, the
+     original author and sole copyright holder of the Software.
+
+1.3  "Licensee" means any individual, organisation, institution, or automated
+     system that accesses, downloads, copies, reviews, or interacts with the
+     Software in any form.
+
+1.4  "Academic Use" means use strictly limited to educational review, academic
+     assessment, demonstration, or research purposes, with no commercial intent
+     or financial gain.
+
+1.5  "Commercial Use" means any use of the Software, in whole or in part, for
+     the purpose of generating revenue, providing paid services, or any
+     deployment in a production environment serving end users.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 2 — GRANT OF RIGHTS
+-----------------------------
+
+Subject to the terms and conditions of this Agreement, the Licensor hereby
+grants the Licensee a limited, non-exclusive, non-transferable, revocable
+licence solely for the following permitted purposes:
+
+2.1  **Academic Review**: Lecturers, assessors, and academic staff at Aptech
+     Computer Education may access, read, evaluate, and review the Software
+     for the purpose of grading and academic assessment.
+
+2.2  **Personal Study**: The Licensee may read and study the source code for
+     personal educational enrichment, provided no portion of the code is
+     reproduced or reused in any other project without the Licensor's express
+     written consent.
+
+2.3  **Local Demonstration**: The Licensee may clone and run the Software on a
+     local development machine solely for the purpose of evaluating or
+     demonstrating its functionality, provided such use is non-commercial.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 3 — RESTRICTIONS
+--------------------------
+
+The following actions are expressly prohibited without the prior written
+consent of the Licensor:
+
+3.1  **No Commercial Use**: The Software, or any derivative thereof, may not
+     be used for any Commercial Use, including deploying it as a service,
+     integrating it into a commercial product, or licensing it to third parties.
+
+3.2  **No Redistribution**: The Software may not be redistributed, published,
+     uploaded to any public or private repository (other than the original
+     author's designated version control system), or otherwise transferred to
+     any third party.
+
+3.3  **No Modification for Reuse**: While the Licensee may modify a local copy
+     for study purposes, modified versions may not be distributed, published,
+     or presented as original work by any party other than the Licensor.
+
+3.4  **No Sublicensing**: The Licensee may not grant any sublicence to the
+     Software or any of its components to any other person or entity.
+
+3.5  **No Reverse Engineering for Competitive Use**: The Licensee may not use
+     knowledge gained from studying this Software to build a competing product
+     or service without the Licensor's written consent.
+
+3.6  **Attribution Required**: Any permitted reference to this Software in
+     academic papers, presentations, or publications must clearly credit
+     "IJDrives by Ikedi / GroTec, © 2026".
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 4 — INTELLECTUAL PROPERTY
+------------------------------------
+
+4.1  All title, ownership rights, and intellectual property rights in and to
+     the Software — including but not limited to the system architecture,
+     business logic, API design, database schema, UI/UX design, and brand
+     identity ("IJDrives", "GroTec") — shall remain the exclusive property of
+     the Licensor at all times.
+
+4.2  This Agreement does not transfer any ownership interest in the Software
+     to the Licensee. The Licensee acquires only the limited usage rights
+     expressly set out in Section 2.
+
+4.3  The Licensor retains the right to file patents, trademarks, or copyright
+     registrations on any aspect of the Software at any time.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 5 — THIRD-PARTY COMPONENTS
+-------------------------------------
+
+5.1  The Software incorporates third-party open-source libraries and frameworks
+     (including but not limited to FastAPI, SQLAlchemy, Pydantic, Uvicorn,
+     aiosqlite, Python-Jose, Passlib, and Alembic). These components are
+     governed by their respective licences and are NOT covered by this Agreement.
+
+5.2  The Licensor makes no claim of ownership over any third-party components.
+     Their inclusion does not constitute a sublicence or reassignment of rights
+     under their respective licences.
+
+5.3  A complete list of third-party dependencies and their licences can be found
+     in the `backend/requirements.txt` file and the project README.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 6 — DISCLAIMER OF WARRANTIES
+---------------------------------------
+
+6.1  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+     OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
+
+6.2  THE LICENSOR DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE,
+     SECURE, OR UNINTERRUPTED, OR THAT ANY DEFECTS WILL BE CORRECTED.
+
+6.3  THE LICENSEE ASSUMES ALL RISK ARISING FROM THE USE OR INABILITY TO USE
+     THE SOFTWARE.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 7 — LIMITATION OF LIABILITY
+--------------------------------------
+
+7.1  TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE
+     LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
+     CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO THIS
+     AGREEMENT OR THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+     DAMAGES.
+
+7.2  THE LICENSOR'S TOTAL CUMULATIVE LIABILITY TO THE LICENSEE FOR ALL CLAIMS
+     ARISING FROM OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED THE AMOUNT
+     ACTUALLY PAID BY THE LICENSEE TO THE LICENSOR FOR THE SOFTWARE (IF ANY).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 8 — TERMINATION
+-------------------------
+
+8.1  This licence is effective until terminated. The Licensor may terminate this
+     Agreement immediately and without notice if the Licensee breaches any term
+     of this Agreement.
+
+8.2  Upon termination, the Licensee must immediately cease all use of the
+     Software and destroy all copies in their possession or control.
+
+8.3  Sections 4, 5, 6, 7, 9, and 10 shall survive termination of this Agreement.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 9 — GOVERNING LAW
+---------------------------
+
+9.1  This Agreement shall be governed by and construed in accordance with the
+     laws of the Federal Republic of Nigeria, without regard to its conflict of
+     law provisions.
+
+9.2  Any dispute arising out of or in connection with this Agreement shall be
+     subject to the exclusive jurisdiction of the courts of Nigeria.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 10 — GENERAL PROVISIONS
+----------------------------------
+
+10.1 **Entire Agreement**: This Agreement constitutes the entire agreement
+     between the parties with respect to the Software and supersedes all prior
+     or contemporaneous understandings, agreements, negotiations, or
+     representations.
+
+10.2 **Severability**: If any provision of this Agreement is held to be invalid
+     or unenforceable, the remaining provisions shall continue in full force
+     and effect.
+
+10.3 **No Waiver**: Failure by the Licensor to enforce any right or provision
+     of this Agreement shall not constitute a waiver of such right or provision.
+
+10.4 **Amendments**: This Agreement may only be amended in writing, signed by
+     the Licensor. No other form of modification shall be binding.
+
+10.5 **Enquiries**: For licensing enquiries, permissions, or commercial use
+     requests, contact the Licensor through the project repository at:
+     https://github.com/Ikedi-21/IJ-Drives
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+                        © 2026 GroTec. All Rights Reserved.
+                   IJDrives — Built with passion by Ikedi / GroTec.
+         Unauthorised use, reproduction, or distribution is strictly prohibited.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
