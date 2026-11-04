@@ -44,3 +44,4 @@ class WalletRepository(BaseRepository[Wallet]):
             .limit(limit)
         )
         return list(result.scalars().all())
+

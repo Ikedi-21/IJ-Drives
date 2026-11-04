@@ -25,3 +25,4 @@ class User(Base, UUIDPrimaryKeyMixin, TimestampMixin):
 
     # 1-to-many relationship with Bookings
     bookings: Mapped[List["Booking"]] = relationship("Booking", back_populates="user", cascade="all, delete-orphan")
+

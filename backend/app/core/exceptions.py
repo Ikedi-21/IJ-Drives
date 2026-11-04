@@ -89,3 +89,4 @@ class BusinessRuleViolationException(AppException):
             code=code,
             status_code=400,
         )
+

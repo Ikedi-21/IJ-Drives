@@ -84,3 +84,4 @@ async def test_get_current_user_profile(client: AsyncClient, authenticated_user)
     assert body["success"] is True
     assert body["data"]["email"] == authenticated_user["user"].email
     assert body["data"]["wallet_balance"] == 10000.0
+

@@ -59,3 +59,4 @@ async def get_provider(provider_id: str, session: AsyncSession = Depends(get_db)
     service = TransportService(session)
     provider = await service.get_provider(provider_id)
     return StandardResponse.ok(provider)
+

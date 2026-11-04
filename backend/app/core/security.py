@@ -58,3 +58,4 @@ def decode_access_token(token: str) -> Dict[str, Any]:
         return payload
     except JWTError as exc:
         raise AuthenticationException("Could not validate credentials or token expired.") from exc
+

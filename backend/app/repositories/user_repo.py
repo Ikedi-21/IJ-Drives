@@ -29,3 +29,4 @@ class UserRepository(BaseRepository[User]):
     async def email_exists(self, email: str) -> bool:
         user = await self.get_by_email(email)
         return user is not None
+

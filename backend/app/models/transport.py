@@ -48,3 +48,4 @@ class Route(Base, TimestampMixin):
 
     provider: Mapped["Provider"] = relationship("Provider", back_populates="routes")
     bookings: Mapped[List["Booking"]] = relationship("Booking", back_populates="route")
+

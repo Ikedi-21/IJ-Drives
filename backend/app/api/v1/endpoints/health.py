@@ -25,3 +25,4 @@ async def health_check(session: AsyncSession = Depends(get_db)):
         "version": settings.VERSION,
         "environment": settings.ENVIRONMENT,
     })
+

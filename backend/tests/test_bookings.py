@@ -85,3 +85,4 @@ async def test_list_my_bookings(client: AsyncClient, authenticated_user, sample_
     assert body["success"] is True
     assert len(body["data"]) >= 1
     assert body["data"][0]["route_id"] == sample_route.id
+

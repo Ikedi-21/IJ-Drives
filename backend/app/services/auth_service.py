@@ -110,3 +110,4 @@ class AuthService:
             wallet_balance=balance,
             created_at=user.created_at,
         )
+

@@ -55,3 +55,4 @@ app.include_router(api_router, prefix=settings.API_V1_STR)
 async def root():
     """Redirect root directly to interactive Swagger API documentation."""
     return RedirectResponse(url="/docs")
+

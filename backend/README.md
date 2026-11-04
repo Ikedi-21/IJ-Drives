@@ -114,3 +114,4 @@ To launch the full production stack with PostgreSQL:
 ```bash
 docker compose up -d --build
 ```
+

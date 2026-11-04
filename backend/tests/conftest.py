@@ -137,3 +137,4 @@ async def sample_route(db_session: AsyncSession):
     db_session.add(route)
     await db_session.commit()
     return route
+

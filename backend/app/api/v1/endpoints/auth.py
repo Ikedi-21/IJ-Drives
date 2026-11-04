@@ -36,3 +36,4 @@ async def get_current_user_profile(
     service = AuthService(session)
     result = await service.get_profile(current_user.id)
     return StandardResponse.ok(result)
+

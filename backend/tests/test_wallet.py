@@ -39,3 +39,4 @@ async def test_wallet_deposit_below_minimum(client: AsyncClient, authenticated_u
     deposit_payload = {"amount": 100.0}
     response = await client.post("/wallet/deposit", json=deposit_payload, headers=headers)
     assert response.status_code == 422  # Pydantic ge validation
+

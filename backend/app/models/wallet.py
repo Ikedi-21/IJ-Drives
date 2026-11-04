@@ -41,3 +41,4 @@ class WalletTransaction(Base, UUIDPrimaryKeyMixin):
     __table_args__ = (
         Index("ix_wallet_tx_wallet_created", "wallet_id", "created_at"),
     )
+

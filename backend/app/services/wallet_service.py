@@ -78,3 +78,4 @@ class WalletService:
     async def get_balance(self, user_id: str) -> float:
         wallet = await self.wallet_repo.get_by_user_id(user_id)
         return wallet.balance_ngn if wallet else 0.0
+

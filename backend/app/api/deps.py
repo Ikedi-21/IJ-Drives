@@ -52,3 +52,4 @@ async def get_optional_user(
         return await user_repo.get_by_id(user_id)
     except Exception:
         return None
+

@@ -33,3 +33,4 @@ class BookingRepository(BaseRepository[Booking]):
             .limit(limit)
         )
         return list(result.scalars().all())
+

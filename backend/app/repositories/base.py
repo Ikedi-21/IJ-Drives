@@ -32,3 +32,4 @@ class BaseRepository(Generic[ModelT]):
     async def delete(self, entity: ModelT) -> None:
         await self.session.delete(entity)
         await self.session.flush()
+

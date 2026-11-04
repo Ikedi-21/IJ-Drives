@@ -140,3 +140,4 @@ class BookingService:
         if not booking:
             raise EntityNotFoundException("Booking", ref)
         return self._map_booking(booking)
+

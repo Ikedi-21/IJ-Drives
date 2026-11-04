@@ -43,3 +43,4 @@ class WalletSummaryResponse(BaseModel):
     balance: float
     currency: str
     transactions: List[TransactionResponse]
+

@@ -9,3 +9,4 @@ api_router.include_router(auth.router, prefix="/auth", tags=["Authentication & I
 api_router.include_router(wallet.router, prefix="/wallet", tags=["Wallet & Accounting"])
 api_router.include_router(transport.router, prefix="/transport", tags=["Transport Discovery & Catalog"])
 api_router.include_router(bookings.router, prefix="/bookings", tags=["Bookings & Tickets"])
+

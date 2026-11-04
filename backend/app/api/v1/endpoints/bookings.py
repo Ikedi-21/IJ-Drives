@@ -50,3 +50,4 @@ async def get_booking_by_reference(
     service = BookingService(session)
     booking = await service.get_booking_by_ref(ref)
     return StandardResponse.ok(booking)
+

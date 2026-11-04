@@ -49,3 +49,4 @@ class RouteFilterParams(BaseModel):
     max_fare: Optional[float] = None
     class_filter: Optional[str] = None
     sort_by: Optional[str] = None  # price_asc, price_desc, duration_asc, duration_desc
+

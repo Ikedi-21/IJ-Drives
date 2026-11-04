@@ -35,3 +35,4 @@ class Booking(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     __table_args__ = (
         Index("ix_bookings_user_status", "user_id", "status"),
     )
+

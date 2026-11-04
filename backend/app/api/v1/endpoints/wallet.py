@@ -32,3 +32,4 @@ async def deposit_funds(
     service = WalletService(session)
     updated_summary = await service.deposit(current_user.id, payload)
     return StandardResponse.ok(updated_summary)
+
